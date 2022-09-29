@@ -14,6 +14,31 @@
   margin-top: 30px;
 }
 
+//サーチアイコン
+
+.search_box {
+  display: inline-block; /* なくても大丈夫だけど、念の為 */
+  position: relative;    /* 基準値とする */
+}
+
+.search_box::before {
+  content: "";           /* 疑似要素に必須 */
+  width: 16px;           /* アイコンの横幅 */
+  height: 16px;          /* アイコンの高さ */
+  background: url(img/magnifying_glass.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute;    /* 相対位置に指定 */
+  top: 145px;              /* アイコンの位置。微調整してね */
+  left: 15px;             /* アイコンの位置。微調整してね */
+}
+
+.search_box input {
+  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
+
+//ハンバーガーメニュー、ドロワーメニュー
+
 a{
   text-decoration: none;
   color: blue
@@ -91,9 +116,9 @@ a{
     <div class="header__container">
       <nav class="nav" id="nav">
         <ul>
-          <li><a href="#">リンク1</a></li>
-          <li><a href="#">リンク2</a></li>
-          <li><a href="#">リンク3</a></li>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">LOGOUT</a></li>
+          <li><a href="#">MYPAGE</a></li>
         </ul>
       </nav>
       <div class="menu" id="menu">
@@ -103,11 +128,26 @@ a{
       </div>
       <h2>Rese</h2>
       <div class=search__var></div>
-        <input type="hidden" name="area">
-          <p>All area</p>
-        <input type="hidden" name="genre">
-          <p>All genre</p>
-        <input type="text">
+        <form action="search" method="post">
+        @csrf  
+          <select name="search__area" onchange="this.form.submit()">
+            <option value="area">All area</option>
+            <option value="area">東京都</option>
+            <option value="area">大阪府</option>
+            <option value="area">福岡県</option>
+          </select>  
+          <select name="search__genre" id="">
+            <option value="genre">All genre</option>
+            <option value="genre">寿司</option>
+            <option value="genre">焼肉</option>
+            <option value="genre">居酒屋</option>
+            <option value="genre">イタリアン</option>
+            <option value="genre">ラーメン</option>
+          </select>  
+          <div class="search_box">
+            <input type="text" placeholder="search...">
+          </div>
+        </form>
       </div>
     </div>  
   </header>

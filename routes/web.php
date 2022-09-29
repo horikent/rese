@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 
-Route::get('/index', [ShopController::class, 'index']);
+Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{shop_id}',  [ShopController::class, 'detail'])-> name('detail');
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/search', [ShopController::class, 'search']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

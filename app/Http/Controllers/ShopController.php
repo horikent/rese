@@ -9,7 +9,7 @@ class ShopController extends Controller
         public function index()
     {
         $shops=Shop::all();
-        return view('index', ['shops' => $shops]);
+        return view('/index', ['shops' => $shops]);
     }
     
         public function detail(Request $request, $shop_id){
@@ -19,5 +19,14 @@ class ShopController extends Controller
         'shop'=>$shop
         ];
         return view('detail', $param);
+    }
+
+    public function search(Request $request){
+        $area=$request->area;
+
+        if(!empty($area)){
+            $search_area=Shop::where('area', '=', $area)->get();
+        }
+        return view('/index', ['shops'=>$search_area]);
     }
 }

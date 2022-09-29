@@ -81,9 +81,9 @@ a{
   <div class="header__container">
   <nav class="nav" id="nav">
     <ul>
-      <li><a href="#">リンク1</a></li>
-      <li><a href="#">リンク2</a></li>
-      <li><a href="#">リンク3</a></li>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">LOGOUT</a></li>
+          <li><a href="#">MYPAGE</a></li>
     </ul>
   </nav>
   <div class="menu" id="menu">
