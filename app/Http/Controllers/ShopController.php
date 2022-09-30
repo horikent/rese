@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 use App\Models\Shop;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-        public function index()
+        public function index(Request $request)
     {
-        $shops=Shop::all();
-        return view('/index', ['shops' => $shops]);
+        $shops = Shop::all();
+        $areas = Area::all();
+        $area_id = $request->area_id;
+        $param=[
+            'shops'=>$shops,
+            'areas'=>$areas,
+            'area_id'=>$area_id
+        ];
+        return view('/index', $param);
     }
     
         public function detail(Request $request, $shop_id){
@@ -23,10 +31,24 @@ class ShopController extends Controller
 
     public function search(Request $request){
         $area=$request->area;
-
+        $genre=$request->genre;
+        $name=$request->name;
+            
         if(!empty($area)){
-            $search_area=Shop::where('area', '=', $area)->get();
-        }
-        return view('/index', ['shops'=>$search_area]);
+            $search=Shop::where('area', $area)->get();
+        }        
+        if(!empty($genre)){
+            $search=Shop::where('genre', $genre)->get();
+        }        
+        if(!empty($name)){
+            $search=Shop::where('name', 'like', "%{$name}%")->get();
+        }        
+        
+        $param=[
+            'area'=>$area,
+            'genre'=>$genre,
+            'shops'=>$search 
+        ];
+        return view('/index', $param);
     }
 }

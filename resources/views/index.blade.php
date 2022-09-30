@@ -115,11 +115,20 @@ a{
   <header class="shop__header">
     <div class="header__container">
       <nav class="nav" id="nav">
+        @auth
         <ul>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">LOGOUT</a></li>
-          <li><a href="#">MYPAGE</a></li>
+          <li><a href="/">HOME</a></li>
+          <li><a href="logout">LOGOUT</a></li>
+          <li><a href="/mypage">MYPAGE</a></li>
         </ul>
+        @endauth
+        @guest
+        <ul>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/register">REGISTRATION</a></li>
+          <li><a href="/login">LOGIN</a></li>
+        </ul>
+        @endguest
       </nav>
       <div class="menu" id="menu">
         <span class="menu__line--top"></span>
@@ -130,22 +139,22 @@ a{
       <div class=search__var></div>
         <form action="search" method="post">
         @csrf  
-          <select name="search__area" onchange="this.form.submit()">
-            <option value="area">All area</option>
-            <option value="area">東京都</option>
-            <option value="area">大阪府</option>
-            <option value="area">福岡県</option>
-          </select>  
-          <select name="search__genre" id="">
-            <option value="genre">All genre</option>
-            <option value="genre">寿司</option>
-            <option value="genre">焼肉</option>
-            <option value="genre">居酒屋</option>
-            <option value="genre">イタリアン</option>
-            <option value="genre">ラーメン</option>
+          <select name="area"  onchange="this.form.submit()">
+            <option value="">All area</option>
+            <option value="東京都">東京都</option>
+            <option value="大阪府">大阪府</option>
+            <option value="福岡県">福岡県</option>
+          </select>   
+          <select name="genre" onchange="this.form.submit()">
+            <option value="">All genre</option>
+            <option value="寿司">寿司</option>
+            <option value="焼肉">焼肉</option>
+            <option value="居酒屋">居酒屋</option>
+            <option value="イタリアン">イタリアン</option>
+            <option value="ラーメン">ラーメン</option>
           </select>  
           <div class="search_box">
-            <input type="text" placeholder="search...">
+            <input name="name" type="text" placeholder="search..." onchange="this.form.submit()">
           </div>
         </form>
       </div>
