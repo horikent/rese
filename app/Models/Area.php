@@ -16,16 +16,11 @@ class Area extends Model
         'area', 'created_at', 'updated_at'
     ];
 
-    public function relate(Request $request){
-        $areas = Area::all();
-        return view('/index', ['areas' => $areas]);
-    }
+
 
     public function shops() {
         return $this->hasMany(Shop::class);
     }
 
-    public function getArea() {
-    return $this->area;
-    }
+
 }

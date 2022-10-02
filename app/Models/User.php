@@ -17,6 +17,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $guraded = [
+        'id'
+    ];
+        
     protected $fillable = [
         'name',
         'email',
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function reservations() {
+        return $this->hasMany(Reservation::class);
+    }
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
+
 }

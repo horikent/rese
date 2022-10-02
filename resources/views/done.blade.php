@@ -7,8 +7,9 @@
   <title>Document</title>
 </head>
 <body>
-  <div>done__container</div>
+  <div class="done__container">
     <p>ご予約ありがとうございます</p>
-    <button class="login__btn">戻る</button>
+    <button class="login__btn"><a href="/">戻る</a></button>
+  </div>
 </body>
 </html>

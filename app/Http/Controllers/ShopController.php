@@ -7,20 +7,24 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-        public function index(Request $request)
+    public function index(Request $request)
     {
         $shops = Shop::all();
-        $areas = Area::all();
-        $area_id = $request->area_id;
+        $areas = Area::with('shops')->get();
         $param=[
             'shops'=>$shops,
             'areas'=>$areas,
-            'area_id'=>$area_id
         ];
         return view('/index', $param);
     }
-    
-        public function detail(Request $request, $shop_id){
+
+    public function relate(Request $request)
+    {
+        $shops = Shop::all();
+        return view('/index', ['shops' => $shops]);
+    }
+
+    public function detail(Request $request, $shop_id){
         $shop=Shop::find($shop_id);
         $param=[
         'shop_id'=>$shop_id,

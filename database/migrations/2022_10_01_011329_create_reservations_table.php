@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('area_id');
-            $table->foreignId('genre_id');
-            $table->text('detail');
-            $table->text('image');
+            $table->foreignId('user_id');
+            $table->foreignId('shop_id');
+            $table->date('date');
+            $table->time('time');
+            $table->integer('number');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shops');
+        Schema::dropIfExists('reservations');
     }
 };

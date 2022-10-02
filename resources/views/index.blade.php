@@ -118,7 +118,7 @@ a{
         @auth
         <ul>
           <li><a href="/">HOME</a></li>
-          <li><a href="logout">LOGOUT</a></li>
+          <li><a href="/logout">LOGOUT</a></li>
           <li><a href="/mypage">MYPAGE</a></li>
         </ul>
         @endauth
@@ -137,8 +137,16 @@ a{
       </div>
       <h2>Rese</h2>
       <div class=search__var></div>
-        <form action="search" method="post">
+        <form action="/search" method="post">
         @csrf  
+        @if($errors->has('name'))
+          <tr>
+            <th>ERROR</th>
+            <td>
+              {{$errors->first('task')}}
+            </td>
+          </tr>
+        @endif  
           <select name="area"  onchange="this.form.submit()">
             <option value="">All area</option>
             <option value="東京都">東京都</option>
@@ -165,10 +173,10 @@ a{
       @foreach($shops as $shop)
         <img src="{{$shop->image}}" alt="">
         <h2>{{$shop->name}}</h2>
-        <p>## {{$shop->area}}</p>
-        <p>## {{$shop->genre}}</p>
+        <p>## {{$shop->area->area}}</p>
+        <p>## {{$shop->genre->genre}}</p>
         <button><a href="{{ route('detail', ['shop_id' => $shop->id ]) }}">詳しくみる</a></button>
-        @endforeach
+      @endforeach  
     </div>
   </div>
   <script src="{{ asset('/js/rese.js') }}"></script>

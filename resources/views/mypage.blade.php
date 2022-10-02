@@ -12,18 +12,27 @@ nameさん
 <div>
   <div>
     <h4>予約状況</h4>
+    <button>
+      <form action="/delete" method="post">
+      @csrf  
+      </form>
+    </button>
     <table>
       <tr>
         <th>Shop</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Number</th>
+        <td>{{$reservation->shop->name}}</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>Date</th>
+        <td>{{$reservation->date}}</td>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <td>{{$reservation->time}}</td>
+      </tr>
+      <tr>
+        <th>Number</th>
+        <td>{{$reservation->number}}</td>
       </tr>
     </table>
   </div>
