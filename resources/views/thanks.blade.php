@@ -9,6 +9,7 @@
 <body>
   <div>register__container</div>
     <p>会員登録ありがとうございます</p>
-    <button class="login__btn">ログインする</button>
+    <button class="login__btn">
+      <a href="/">ログインする</a></button>
 </body>
 </html>

@@ -5,10 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Shop extends Model
 {
+    
     use HasFactory;
     
+    protected $guarded =[
+        'id'
+    ];
+    protected $fillable =[
+        'name', 'area_id','genre_id', 'detail', 'image', 'created_at', 'updated_at', 'shop_id', 'user_id'
+    ];
+
     public function area() {
         return $this->belongsTo('App\Models\Area');
     }
@@ -21,4 +30,5 @@ class Shop extends Model
     public function favorites() {
         return $this->hasMany(Favorite::class);
     }
+    
 }

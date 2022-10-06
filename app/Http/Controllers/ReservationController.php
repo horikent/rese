@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
-    public function index(Request $request)
+    public function find(Request $request)
     {
-        $reservations = Reservation::all();
-        $users = User::with('reservations')->get();
+
+        $users = Auth::user();
+        $reservations = Reservation::where('user_id', Auth::id())->get();
         $param=[
             'reservations'=>$reservations,
             'users'=>$users
@@ -38,5 +39,7 @@ class ReservationController extends Controller
 
         public function remove(Request $request)
     {
+        Reservation::find($request->id)->delete();
+        return redirect('/mypage');
     }
 }

@@ -3,25 +3,31 @@
 namespace App\Http\Controllers;
 use App\Models\Shop;
 use App\Models\Area;
+use App\Models\Genre;
+use App\Models\Favorite;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ShopController extends Controller
 {
-    public function index(Request $request)
+
+
+public function index(Request $request)
     {
-        $shops = Shop::all();
-        $areas = Area::with('shops')->get();
+        $id=Auth::id();
+        $shops=Shop::all();
+        $shop_id=Favorite::with('shop_id');
+        $favorites=Favorite::all()->first();
+    
         $param=[
+            'id'=>$id,
             'shops'=>$shops,
-            'areas'=>$areas,
+            'shop_id'=>$shop_id,
+            'favorites'=>$favorites
         ];
         return view('/index', $param);
-    }
-
-    public function relate(Request $request)
-    {
-        $shops = Shop::all();
-        return view('/index', ['shops' => $shops]);
     }
 
     public function detail(Request $request, $shop_id){
@@ -54,5 +60,9 @@ class ShopController extends Controller
             'shops'=>$search 
         ];
         return view('/index', $param);
+    }
+        public function thanks(Request $request)
+    {
+        return view('/thanks');
     }
 }

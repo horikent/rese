@@ -67,6 +67,7 @@ a{
 }
 
 </style>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -83,7 +84,10 @@ a{
     @auth
     <ul>
       <li><a href="/">HOME</a></li>
-      <li><a href="/logout">LOGOUT</a></li>
+      <form action="/logout" method="post">
+        @csrf 
+        <li><input type="submit" value="LOGOUT"></a></li>
+      </form>
       <li><a href="/mypage">MYPAGE</a></li>
     </ul>
     @endauth
@@ -134,7 +138,14 @@ a{
                 <td><p id="output_number">人</p></td>
               </tr>
             </table>
-          <input type="submit" value="予約する">
+          @auth
+            <input type="submit" value="予約する">
+          @endauth
+          @guest
+            <button>
+              <a href="/register">予約する</a>
+            </button>  
+          @endguest  
       </form>
     </div>
   </div>

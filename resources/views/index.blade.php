@@ -102,6 +102,13 @@ a{
   transform: translateX(100%);
 }
 
+.red-heart{
+  color:red;
+}
+.grey-heart{
+  color:grey;
+}
+
 </style>
 <!DOCTYPE html>
 <html lang="ja">
@@ -118,7 +125,10 @@ a{
         @auth
         <ul>
           <li><a href="/">HOME</a></li>
-          <li><a href="/logout">LOGOUT</a></li>
+          <form action="/logout" method="post">
+            @csrf 
+            <li><input type="submit" value="LOGOUT"></a></li>
+          </form>
           <li><a href="/mypage">MYPAGE</a></li>
         </ul>
         @endauth
@@ -176,6 +186,26 @@ a{
         <p>## {{$shop->area->area}}</p>
         <p>## {{$shop->genre->genre}}</p>
         <button><a href="{{ route('detail', ['shop_id' => $shop->id ]) }}">詳しくみる</a></button>
+        @auth
+          @if($favorites->favorite(Auth::id(), $shop->id))
+            <form action="/delete/favorite" method="post">
+            @csrf 
+              <input type="hidden" name="_token" value="{{csrf_token()}}">
+              <input type="hidden" name="id" value="{{$favorites->id}}">
+              <button type="submit"><span class="red-heart">❤️</span></button>
+            </form>   
+          @else  
+            <form action="/add/favorite" method="post">
+            @csrf
+              <input type="hidden" name="_token" value="{{csrf_token()}}">
+              <input type="hidden" name="shop_id" value="{{$shop->id}}">
+              <button type="submit"><span class="grey-heart">🤍</span></button>
+            </form>  
+          @endif  
+        @endauth
+        @guest
+          <a href="/register">🤍</a>
+        @endguest  
       @endforeach  
     </div>
   </div>
