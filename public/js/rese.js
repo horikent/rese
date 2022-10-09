@@ -22,3 +22,4 @@ document.addEventListener('change', e => {
     document.querySelector('#output_number').textContent=e.target.value;
   }
 });
+

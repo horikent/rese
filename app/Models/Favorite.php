@@ -24,12 +24,13 @@ class Favorite extends Model
     public function user() {
         return $this->belongsTo('App\Models\User');
     }
-    public function favorite($id, $shop_id) {
+    public function exists($id, $shop_id) {
             $favorite=Favorite::where('user_id', $id)->where('shop_id', $shop_id)->get();
             if(!$favorite->isEmpty()){
                 return true;
             }else{
                 return false;
             }
+
             }
 }

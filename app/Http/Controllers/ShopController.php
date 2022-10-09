@@ -40,27 +40,32 @@ public function index(Request $request)
     }
 
     public function search(Request $request){
-        $area=$request->area;
-        $genre=$request->genre;
+        $area_id=$request->area_id;
+        $genre_id=$request->genre_id;
         $name=$request->name;
-            
-        if(!empty($area)){
-            $search=Shop::where('area', $area)->get();
+        $shop_id=Favorite::with('shop_id');
+        $favorites=Favorite::all()->first();
+
+        if(!empty($area_id)){
+            $search=Shop::where('area_id', $area_id)->get();
         }        
-        if(!empty($genre)){
-            $search=Shop::where('genre', $genre)->get();
+        if(!empty($genre_id)){
+            $search=Shop::where('genre_id', $genre_id)->get();
         }        
         if(!empty($name)){
             $search=Shop::where('name', 'like', "%{$name}%")->get();
         }        
-        
+
         $param=[
-            'area'=>$area,
-            'genre'=>$genre,
-            'shops'=>$search 
+            'area_id'=>$area_id,
+            'genre_id'=>$genre_id,
+            'shops'=>$search,
+            'shop_id'=>$shop_id,
+            'favorites'=>$favorites
         ];
         return view('/index', $param);
     }
+
         public function thanks(Request $request)
     {
         return view('/thanks');

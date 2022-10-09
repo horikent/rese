@@ -42,4 +42,8 @@ class ReservationController extends Controller
         Reservation::find($request->id)->delete();
         return redirect('/mypage');
     }
+        public function done(Request $request)
+    {
+        return $this;
+    }
 }

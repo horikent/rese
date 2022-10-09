@@ -1,42 +1,68 @@
 <style>
 
-.shop__container {
-  column-count: 4;
-  width: 92%;
-  margin: 0 auto
+header{
+  width:100%;
 }
-.item{
+
+body{
+  background:rgb(238,238,238);
+}
+
+.shop__item{
   break-inside: avoid;
   text-align: center;
+  margin-bottom:10px;
+  background:white;
+  border-radius:10px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, .5);
 }
-.item img{
+.shop__item img{
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
   width: 100%;
-  margin-top: 30px;
-}
-
-//サーチアイコン
-
-.search_box {
-  display: inline-block; /* なくても大丈夫だけど、念の為 */
-  position: relative;    /* 基準値とする */
-}
-
-.search_box::before {
-  content: "";           /* 疑似要素に必須 */
-  width: 16px;           /* アイコンの横幅 */
-  height: 16px;          /* アイコンの高さ */
-  background: url(img/magnifying_glass.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
-  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
-  position: absolute;    /* 相対位置に指定 */
-  top: 145px;              /* アイコンの位置。微調整してね */
-  left: 15px;             /* アイコンの位置。微調整してね */
-}
-
-.search_box input {
-  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
 }
 
 
+.logo{
+  color:#2F5CFF;
+}
+
+
+
+.flex-item{
+  display:flex;
+}
+
+.reservation__container{
+  width:45%;
+  text-align:right;
+  margin:0 5%;
+}
+.reservation__item{
+  width:100%;
+  background:#2F5CFF;
+  margin-bottom:10px;
+  height:200px;
+  border-radius:5px;
+}
+
+table{
+  padding:5px;
+  color:white;
+}
+.favorite__container{
+  width:45%;
+  margin:0 5%;
+}
+.favorite__items {
+  column-count: 2;
+  width: 100%;
+  margin: 0 auto
+}
+
+.favorite-ttl{
+  width:100%;
+}
 //ハンバーガーメニュー、ドロワーメニュー
 
 a{
@@ -102,13 +128,27 @@ a{
   transform: translateX(100%);
 }
 
-.red-heart{
-  color:red;
-}
-.grey-heart{
-  color:grey;
+//
+
+button{
+  border:none;
+  background:none;
 }
 
+.shop__btn{
+  width:70%;
+  height:40px;
+  margin-left:15%;
+  justify-content:space-between;
+}
+.detail__btn{
+  background:#2F5CFF;
+  border-radius:5px;
+  padding:0 8px;
+}
+.heart{
+  font-size:30px;
+}
 </style>
 
 <!DOCTYPE html>
@@ -117,11 +157,9 @@ a{
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Rese</title>
 </head>
 <body>
-<p>{{Auth::user()->name}}さん</p>
-
   <header class="shop__header">
     <div class="header__container">
       <nav class="nav" id="nav">
@@ -148,49 +186,67 @@ a{
         <span class="menu__line--middle"></span>
         <span class="menu__line--bottom"></span>
       </div>
+      <h2 class="logo">Rese</h2>
     </div>  
-  </header>
-  <div>
-    <h4>予約状況</h4>
+  </header><br>
+<div class="mypage__container flex-item">  
+  <div class="reservation__container">
+    <h3>予約状況</h3>
       @foreach($reservations as $reservation)
-        <form action="/delete/reservation"  method="post">
-          @csrf  
-          <input type="hidden" name="id" value="{{$reservation->id}}">
-          <input type="submit" value="❌">
-        </form>  
-        <table>
-          <tr>
-            <th>Shop</th>
-            <td>{{$reservation->shop->name}}</td>
-          </tr>
-          <tr>
-            <th>Date</th>
-            <td>{{$reservation->date}}</td>
-          </tr>
-          <tr>
-            <th>Time</th>
-            <td>{{$reservation->time}}</td>
-          </tr>
-          <tr>
-            <th>Number</th>
-            <td>{{$reservation->number}}人</td>
-          </tr>
-        </table>       
-      @endforeach
-  </div>
-  <div>
-    <h4>お気に入り店舗</h4>
-      @foreach($favorites as $favorite)
-        <div>
-          <img src="{{$favorite->shop->image}}" alt="">
-          <h2>{{$favorite->shop->name}}</h2>
-          <p>## {{$favorite->shop->area->area}}</p>
-          <p>## {{$favorite->shop->genre->genre}}</p>
-          <button>
-            <a href="{{ route('detail', ['shop_id' => $favorite->shop->id ]) }}">詳しくみる</a>
-          </button>
+        <div class="reservation__item">
+          <form action="/delete/reservation"  method="post">
+            @csrf  
+            <input type="hidden" name="id" value="{{$reservation->id}}">
+            <input type="submit" value="❌">
+          </form>  
+          <table>
+            <tr>
+              <th>Shop</th>
+              <td>{{$reservation->shop->name}}</td>
+            </tr>
+            <tr>
+              <th>Date</th>
+              <td>{{$reservation->date}}</td>
+            </tr>
+            <tr>
+              <th>Time</th>
+              <td>{{$reservation->time}}</td>
+            </tr>
+            <tr>
+              <th>Number</th>
+              <td>{{$reservation->number}}人</td>
+            </tr>
+          </table>       
         </div>
       @endforeach
+  </div>
+  <div class="favorite__container">
+    <div class="favorite-ttl">
+      <h2>{{Auth::user()->name}}さん</h2>
+      <h3>お気に入り店舗</h3>
+    </div>
+    <div class="favorite__items">
+      @foreach($favorites as $favorite)
+        <div class="shop__item">
+          <div class="shop__image">
+            <img src="{{$favorite->shop->image}}" alt="">
+          </div>          
+          <div class="shop__title">
+            <h2>{{$favorite->shop->name}}</h2>
+            <p>#{{$favorite->shop->area->area}}&emsp;#{{$favorite->shop->genre->genre}}</p>
+          </div>           
+          <div class="shop__btn flex-item">
+            <button class="detail__btn"><a href="{{ route('detail', ['shop_id' => $favorite->shop->id ]) }}">詳しくみる</a></button>
+            <form action="/delete/favorite" method="post">
+            @csrf
+              <input type="hidden" name="_token" value="{{csrf_token()}}">
+              <input type="hidden" name="shop_id" value="{{$favorite->shop->id}}">
+              <button type="submit"><span class="heart">❤️</span></button>
+            </form>   
+          </div>  
+        </div>
+      @endforeach
+    </div>
   </div>
 </div>  
   <script src="{{ asset('/js/rese.js') }}"></script>
