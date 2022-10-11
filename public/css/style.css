@@ -1,0 +1,334 @@
+body {
+  background: rgb(238, 238, 238);
+}
+
+.header__container {
+  width: 90%;
+  margin-bottom:10px;
+}
+
+.flex-item {
+  display: flex;
+}
+
+.logo {
+  color: #2F5CFF;
+  margin-left:30px;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+}
+
+
+
+/*ハンバーガーメニュー、ドロワーメニュー*/
+
+.nav {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  left: -100%;
+  background: #eee;
+  transition: .7s;
+  text-align: center;
+}
+
+.nav ul {
+  padding-top: 80px;
+}
+
+.nav ul li {
+  list-style-type: none;
+  margin-top: 50px;
+}
+
+.menu {
+  display: inline-block;
+  width: 36px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  background: #2F5CFF;
+  border-radius: 5px;
+}
+
+.menu__line--top,
+.menu__line--middle,
+.menu__line--bottom {
+  display: inline-block;
+  height: 2px;
+  left: 6px;
+  background-color: white;
+  position: absolute;
+  transition: 0.5s;
+}
+
+.menu__line--top {
+  top: 8px;
+  width: 32%;
+}
+
+.menu__line--middle {
+  top: 15px;
+  width: 64%;
+}
+
+.menu__line--bottom {
+  bottom: 8px;
+  width: 16%;
+}
+
+.menu.open span:nth-of-type(1) {
+  top: 14px;
+  width: 64%;
+  transform: rotate(45deg);
+}
+
+.menu.open span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.menu.open span:nth-of-type(3) {
+  top: 14px;
+  width: 64%;
+  transform: rotate(-45deg);
+}
+
+.in {
+  transform: translateX(100%);
+  background:white;
+}
+
+.drawer{
+  color:#2F5CFF;
+  font-weight:bold;
+  font-size:20px;
+  line-height:0.5;
+}
+
+
+/*店舗一覧*/
+
+
+.search__var{
+  height:50px;
+  margin-top:15px;
+}
+
+.search_box {
+  display: inline-block;
+  position: relative;
+}
+.search_box::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: url(img/magnifying_glass.png) no-repeat center center / auto 100%;
+  display: inline-block;
+  position: absolute;
+  top: 145px;
+  left: 15px;
+}
+.search_box input {
+  padding: 3px 0 3px 2em;
+}
+
+.search__area{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.search__name{
+  width:350px;
+  border-top-right-radius:5px;
+  border-bottom-right-radius: 5px;
+}
+
+.shop__container {
+  display: grid;
+  column-count: 4;
+  width: 92%;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.shop__item {
+  break-inside: avoid;
+  text-align: center;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, .5);
+}
+
+.shop__title{
+line-height:1;
+}
+
+.shop__item img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+}
+
+.detail__btn {
+  background: #2F5CFF;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+.shop__btn {
+  width: 70%;
+  height: 40px;
+  margin-left: 15%;
+  padding-bottom:5px;
+  justify-content: space-between;
+}
+
+button {
+  background: white;
+  cursor: pointer;
+}
+
+.heart {
+  font-size: 30px;
+  background: none;
+  text-decoration: none;
+  border: none;
+}
+
+/*店舗詳細*/
+img {
+  width: 100%;
+}
+
+.detail {
+  width: 100%;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.detail__container {
+  width: 40%;
+  margin: 0 3%;
+}
+
+.detail__container-small {
+  text-align: center;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.detail__table {
+  color: white;
+  width: 90%;
+  background: rgb(84, 128, 247);
+  text-align: left;
+  border-radius: 5px;
+}
+
+.reservation__container {
+  margin: 0 3%;
+  padding: 5% 0 0 5%;
+  width: 35%;
+  background: #2F5CFF;
+  color: white;
+  border-radius: 5px;
+}
+
+.date{
+  width:85%;
+}
+
+.time {
+  width: 85%;
+}
+
+.number {
+  width: 85%;
+}
+
+.register__btn {
+  position: absolute;
+  top: 575px;
+  height: 50px;
+  width: 39%;
+  left: 53%;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+/*マイページ*/
+
+.mypage__container{
+  width:90%;
+  justify-content: space-between;
+  margin:0 auto;
+}
+.reservation__container-small {
+  width: 35%;
+  height:100%;
+  background:rgb(238, 238, 238);
+  margin-top:75px;
+}
+
+.reservation__ttl{
+  color:black;
+  margin-top:5px;
+}
+
+.clock{
+  width:25px;
+  height: 25px;
+}
+
+.reservation__count{
+  justify-content: space-between;
+}
+
+.reservation__item {
+  text-align: left;
+  padding:20px;
+  background: #2F5CFF;
+  line-height:2;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.batsu{
+  background:none;
+  border:none;
+}
+
+.mypage__table {
+  width:80%;
+  font-size:14px;
+  color: white;
+}
+
+.favorite__container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.favorite__container-small {
+  display: grid;
+  column-count: 2;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto
+}
+
+.favorite-ttl {
+  width: 100%;
+}
