@@ -55,6 +55,21 @@ public function index(Request $request)
         if(!empty($name)){
             $search=Shop::where('name', 'like', "%{$name}%")->get();
         }        
+        if(!empty($area_id)&&($genre_id)){
+            $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->get();
+        }  
+        if(!empty($area_id)&&($name)){
+            $search=Shop::where('area_id', $area_id)->where('name', 'like', "%{$name}%")->get();
+        }  
+        if(!empty($$genre_id)&&($name)){
+            $search=Shop::where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
+        }  
+        if(!empty($area_id)&&($genre_id)&&($name)){
+            $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
+        }     
+        if((empty($area_id))&&(empty($genre_id))&&(empty($name))){
+            $search=Shop::all();
+        }           
 
         $param=[
             'area_id'=>$area_id,
@@ -66,8 +81,8 @@ public function index(Request $request)
         return view('/index', $param);
     }
 
-        public function thanks(Request $request)
-    {
+    public function thanks(Request $request){
+
         return view('/thanks');
     }
 }

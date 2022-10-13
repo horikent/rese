@@ -40,7 +40,7 @@
                   </tr>
                   <tr>
                     <th>Time</th>
-                    <td>{{$reservation->time}}</td>
+                    <td>{{substr($reservation->time,0,5)}}</td>
                   </tr>
                   <tr>
                     <th>Number</th>

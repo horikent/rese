@@ -12,7 +12,7 @@
     <div class="detail__container flex-item">
       <div class="detail__container-small">
         <div class="shop__name flex-item">
-          <h2><<button class="rounded-md bg-gray-800 text-white px-4 py-2" onClick="history.back();">◀️</button>{{$shop->name}}</h2>
+          <h2><button class="rounded-md bg-gray-800 text-white px-4 py-2" onClick="history.back();"><</button>&nbsp;{{$shop->name}}</h2>
         </div>  
         <div class="shop__image">
           <img src="{{asset($shop->image)}}" alt="">
@@ -32,7 +32,7 @@
           <input type="number" class="number" name="number" min=1 value="number人"><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>
-            <table class="detail__table">
+            <table class="reservation__table">
               <tr>
                 <th>Shop</th>
                 <td>{{$shop->name}}</td>
@@ -54,13 +54,13 @@
               <input type="submit" class="register__btn" value="予約する">
             @endauth
         </form>
-        <div class="register__btn">  
-          @guest
+        @guest
+          <div class="register__btn">  
             <button>
               <a href="/register">予約する</a>
             </button>  
-          @endguest  
-        </div>
+          </div>
+        @endguest  
     </div>
   </div>
 @endsection

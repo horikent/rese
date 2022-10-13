@@ -124,16 +124,7 @@ a {
   display: inline-block;
   position: relative;
 }
-.search_box::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  background: url(img/magnifying_glass.png) no-repeat center center / auto 100%;
-  display: inline-block;
-  position: absolute;
-  top: 145px;
-  left: 15px;
-}
+
 .search_box input {
   padding: 3px 0 3px 2em;
 }
@@ -203,6 +194,11 @@ button {
   border: none;
 }
 
+.zero_container{
+  text-align:center;
+  color:black;
+}
+
 /*店舗詳細*/
 img {
   width: 100%;
@@ -219,18 +215,17 @@ img {
   margin: 0 3%;
 }
 
+.rounded-md{
+  border-radius: 5px;
+  font-size:24px;
+  padding:3px 8px;
+  box-shadow: 3px 3px 3px 0 rgb(156, 156, 156);
+}
+
 .detail__container-small {
   text-align: center;
   margin-bottom: 10px;
   width: 90%;
-}
-
-.detail__table {
-  color: white;
-  width: 90%;
-  background: rgb(84, 128, 247);
-  text-align: left;
-  border-radius: 5px;
 }
 
 .reservation__container {
@@ -242,16 +237,30 @@ img {
   border-radius: 5px;
 }
 
+.reservation__table {
+  color: white;
+  margin-top:-5%;
+  width: 90%;
+  background: rgb(84, 128, 247);
+  text-align: left;
+  border-radius: 5px;
+}
+
 .date{
-  width:85%;
+  width:50%;
+  border-radius: 5px;
+  margin-bottom:7px;
 }
 
 .time {
-  width: 85%;
+  width: 90%;
+  border-radius: 5px;
+  margin-bottom: 7px;
 }
 
 .number {
-  width: 85%;
+  width: 90%;
+  border-radius: 5px;
 }
 
 .register__btn {
@@ -332,3 +341,4 @@ img {
 .favorite-ttl {
   width: 100%;
 }
+
