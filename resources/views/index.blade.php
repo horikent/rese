@@ -18,22 +18,26 @@
           </td>
         </tr>
       @endif  
-        @csrf 
-        <select name="area_id" class="search__area">
-          <option value="">All area</option>
-          <option value="1">東京都</option>
-          <option value="2">大阪府</option>
-          <option value="3">福岡県</option>
-        </select>   
-        @csrf 
-        <select name="genre_id" class="search__genre">
-          <option value="">All genre</option>
-          <option value="1">寿司</option>
-          <option value="2">焼肉</option>
-          <option value="3">居酒屋</option>
-          <option value="4">イタリアン</option>
-          <option value="5">ラーメン</option>
-        </select>  
+        <div class="area">
+          @csrf 
+          <select name="area_id" class="search__area">
+            <option value="">All area</option>
+            @foreach($areas as $area)
+              <option value="{{$area->id}}">{{$area->area}}</option>
+            @endforeach
+          </select>  
+        </div>
+        <span class="line">|</span>
+        <div class="genre">
+          @csrf 
+          <select name="genre_id" class="search__genre">
+            <option value="">All genre</option>
+            @foreach($genres as $genre)
+              <option value="{{$genre->id}}">{{$genre->genre}}</option>
+            @endforeach
+          </select>  
+        </div>
+        <span class="line">|</span>
         @csrf 
         <input name="name" class="search__name" type="text" placeholder="🔍 search..." onchange="this.form.submit()">
     </form>
@@ -65,7 +69,7 @@
                   <form action="/delete/favorite" method="post">
                   @csrf 
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="hidden" name="id" value="{{$favorites->id}}">
+                    <input type="hidden" name="shop_id" value="{{$shop->id}}">
                     <button type="submit" class="heart">❤️</button>
                   </form>   
                 @else  
@@ -78,7 +82,7 @@
                 @endif  
               @endauth
               @guest
-                <a href="/register"><button  class="heart">🤍</button></a>
+                <a href="/login"><button  class="heart">🤍</button></a>
               @endguest  
             </div>  
           </div>

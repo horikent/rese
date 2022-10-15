@@ -2,9 +2,11 @@ body {
   background: rgb(238, 238, 238);
 }
 
+
 .header__container {
   width: 90%;
   margin-bottom:10px;
+  margin:0 2%;
 }
 
 .flex-item {
@@ -125,19 +127,69 @@ a {
   position: relative;
 }
 
-.search_box input {
-  padding: 3px 0 3px 2em;
+select {
+  -webkit-appearance: none;
+  appearance: none; /* デフォルトの矢印を無効 */
+  border:none;
+  cursor: pointer;
 }
 
-.search__area{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+select::-ms-expand {
+  display: none; /* デフォルトの矢印を無効(IE用) */
+}
+
+.area::after,
+.genre::after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #E2E2E2;
+  content: "";
+  position: absolute;
+  right: 500px;
+  top: 48px;
+  width: 0;
+  pointer-events: none;
+}
+
+.area::after {
+  right: 500px;
+}
+
+.genre::after {
+  right: 390px;
+}
+
+.search_box input {
+  padding: 3px 0 3px 2em;
+  cursor: pointer;
+}
+
+.line{
+  background:white;
+  color: #E2E2E2;
+  padding-top:10px;
+  font-size:20px;
+}
+
+.search__area {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.search__area,
+.search__genre {
+  width: 100px;
+  height: 50px;
+  padding: 0 10px;
 }
 
 .search__name{
+  border:none;
   width:350px;
   border-top-right-radius:5px;
   border-bottom-right-radius: 5px;
+  padding: 0 10px;
+  margin-right:6%;
 }
 
 .shop__container {
@@ -154,17 +206,17 @@ a {
   text-align: center;
   margin-bottom: 10px;
   background: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px 0 #B5B5B5;
 }
 
 .shop__title{
-line-height:1;
+  line-height:1;
 }
 
 .shop__item img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 100%;
 }
 
@@ -175,10 +227,10 @@ line-height:1;
 }
 
 .shop__btn {
-  width: 70%;
+  width: 85%;
   height: 40px;
-  margin-left: 15%;
-  padding-bottom:5px;
+  margin-left: 10%;
+  padding-bottom:10px;
   justify-content: space-between;
 }
 
@@ -207,7 +259,7 @@ img {
 .detail {
   width: 100%;
   justify-content: center;
-  margin-top: 5%;
+  margin: 5% 0;
 }
 
 .detail__container {
@@ -230,8 +282,9 @@ img {
 
 .reservation__container {
   margin: 0 3%;
-  padding: 5% 0 0 5%;
-  width: 35%;
+  padding: 5% 0 0 45px;
+  width: 400px;
+  height: 525px;
   background: #2F5CFF;
   color: white;
   border-radius: 5px;
@@ -240,38 +293,44 @@ img {
 .reservation__table {
   color: white;
   margin-top:-5%;
+  font-size:14px;
   width: 90%;
   background: rgb(84, 128, 247);
   text-align: left;
   border-radius: 5px;
+  line-height:2;
 }
 
 .date{
   width:50%;
-  border-radius: 5px;
-  margin-bottom:7px;
 }
 
-.time {
-  width: 90%;
-  border-radius: 5px;
-  margin-bottom: 7px;
-}
-
+.time,
 .number {
   width: 90%;
-  border-radius: 5px;
 }
 
-.register__btn {
-  position: absolute;
-  top: 575px;
-  height: 50px;
-  width: 39%;
-  left: 53%;
+.date, 
+.time,
+.number {
+  height:22px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#output_number{
+  height:5px;
+}
+
+.reservation__btn {
+  width:111%;
+  height:50px;
+  margin-top:185px;
+  margin-left:-45px;
   text-align: center;
   color: white;
   cursor: pointer;
+  background:rgb(0, 63, 245);
 }
 
 /*マイページ*/
@@ -335,10 +394,132 @@ img {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .favorite-ttl {
   width: 100%;
 }
 
+/*サンクスページ・予約完了ページ*/
+
+.register__container,
+.done__container{
+  background:white;
+  width:30%;
+  padding:8% 10%;
+  text-align: center;
+  margin:5% 25%;
+  border-radius:5px;
+  line-height:2;
+  font-size:20px;
+  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+}
+
+
+/*ログインページ*/
+
+.login__container{
+  background: white;
+  text-align: center;
+  margin:0 auto;
+  width: 500px;
+  height:260px;
+  border-radius: 5px;
+  line-height: 2;
+  font-size: 20px;
+  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+}
+
+
+.login__title {
+  background: #2F5CFF;
+  text-align:left;
+  padding: 3% 0;
+  width: 100%;
+  color:white;
+}
+
+
+.form-group{
+  margin-bottom:10px;
+  padding:5px;
+}
+
+.form-control{
+  text-align: left;
+  padding:5px;
+  width:80%;
+}
+
+.login__btn,
+.login__Btn{
+  color: white;
+  background: #2F5CFF;
+  border-radius: 5px;
+}
+
+.login__btn{
+  padding: 5px 10px;
+}
+
+.login__Btn{
+  margin-top:10px;
+  margin-left:60%;
+  cursor: pointer;
+}
+
+.acountPage_link{
+  color:black;
+}
+
+.new_user{
+  width:100%;
+}
+
+/*会員登録ページ*/
+.register__Page {
+  width: 500px;
+  margin: 5%re 30%;
+}
+.register__container {
+  text-align:center;
+  background: white;
+  text-align: center;
+  width: 400px;
+  margin:5% auto;
+  height: 220px;
+  border-radius: 5px;
+  line-height: 2;
+  font-size: 20px;
+  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+}
+
+
+.register__title {
+  background: #2F5CFF;
+  text-align: left;
+  padding: 3% 0;
+  margin-top:-10%;
+  margin-left:-13%;
+  width: 505px;
+  color: white;
+}
+
+
+.register__Btn {
+  background: #2F5CFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding:5px 15px;
+  margin-top: 10px;
+  margin-left: 60%;
+  cursor: pointer;
+}
+
+.acountPage_link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}

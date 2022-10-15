@@ -15,6 +15,7 @@ class ReservationController extends Controller
         $users = Auth::user();
         $reservations = Reservation::where('user_id', Auth::id())->get();
         $param=[
+            'date'=>$date,
             'reservations'=>$reservations,
             'users'=>$users
         ];
@@ -25,11 +26,13 @@ class ReservationController extends Controller
     {
         $user_id = Auth::user()->id;
         $shops = Shop::with('reservations')->get();
+        $date = $request->date;
+        $time = ' '.$request->time.':00';
+        $datetime = $date.=$time;
         $param = [
             'user_id' => $user_id,
             'shop_id'=> $request->shop_id,
-            'date' => $request->date,
-            'time' => $request->time,
+            'datetime' => $datetime,
             'number' => $request->number
         ];    
         Reservation::create($param);

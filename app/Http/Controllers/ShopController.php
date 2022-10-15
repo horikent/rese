@@ -18,12 +18,16 @@ public function index(Request $request)
     {
         $id=Auth::id();
         $shops=Shop::all();
+        $areas=Area::all();
+        $genres=Genre::all();
         $shop_id=Favorite::with('shop_id');
         $favorites=Favorite::all()->first();
     
         $param=[
             'id'=>$id,
             'shops'=>$shops,
+            'areas'=>$areas,
+            'genres'=>$genres,
             'shop_id'=>$shop_id,
             'favorites'=>$favorites
         ];

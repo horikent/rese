@@ -16,8 +16,8 @@ Route::get('/mypage', [MypageController::class, 'index']);
 Route::get('/mypage/reservation', [ReservationController::class, 'find']);
 Route::post('/add/reservation', [ReservationController::class, 'create']);
 Route::get('/done', [ReservationController::class, 'done']);
-
 Route::post('/delete/reservation', [ReservationController::class, 'remove']);
+
 Route::get('/mypage/favorite', [FavoriteController::class, 'find']);
 Route::post('/add/favorite', [FavoriteController::class, 'create']);
 Route::post('/delete/favorite', [FavoriteController::class, 'remove']);

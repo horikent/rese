@@ -11,7 +11,7 @@ class Reservation extends Model
         'id'
     ];
     protected $fillable =[
-        'user_id','shop_id', 'date', 'time', 'number', 'created_at', 'updated_at'
+        'user_id','shop_id', 'date', 'time', 'number', 'created_at', 'updated_at','datetime'
     ];
 
     use HasFactory;

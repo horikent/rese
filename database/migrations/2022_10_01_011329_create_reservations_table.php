@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('shop_id');
-            $table->date('date');
-            $table->time('time');
+            $table->datetime('datetime');
             $table->integer('number');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();

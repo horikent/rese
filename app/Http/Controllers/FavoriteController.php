@@ -14,7 +14,6 @@ class FavoriteController extends Controller
 {
     public function index(Request $request)
     {
-    
 	}
     
     public function create(Request $request)
@@ -32,8 +31,8 @@ class FavoriteController extends Controller
     
     }
 
-    public function remove(Shop $shop, Request $request){
-        Favorite::find($request->id)->delete();
+    public function remove(Request $request){
+        Favorite::where('shop_id', $request->shop_id)->delete();
         return back();
     }
 

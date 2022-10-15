@@ -19,7 +19,7 @@ document.addEventListener('change', e => {
 
 document.addEventListener('change', e => {
   if(e.target.matches('[name=number]')){
-    document.querySelector('#output_number').textContent=e.target.value;
+    document.querySelector('#output_number').textContent=e.target.value+"人";
   }
 });
 

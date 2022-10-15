@@ -28,8 +28,46 @@
         <form action="/add/reservation" method="post">
         @csrf 
           <input type="date" class="date" name="date" value="date"><br>
-          <input type="time" class="time" name="time" value="time"><br>
-          <input type="number" class="number" name="number" min=1 value="number人"><br>
+          <select class="time" name="time">
+            <option></option>
+            <option>11:00</option>
+            <option>11:30</option>
+            <option>12:00</option>
+            <option>12:30</option>
+            <option>13:00</option>
+            <option>13:30</option>
+            <option>14:00</option>
+            <option>14:30</option>
+            <option>15:00</option>
+            <option>15:30</option>
+            <option>16:00</option>
+            <option>16:30</option>
+            <option>17:00</option>
+            <option>18:00</option>
+            <option>18:30</option>
+            <option>19:00</option>
+            <option>19:30</option>
+            <option>20:00</option>
+            <option>20:30</option>
+            <option>21:00</option>
+            <option>21:30</option>
+            <option>22:00</option>
+            <option>22:30</option>
+            <option>23:00</option>
+          </select>
+          <select class="number" name="number">
+            <option></option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>
             <table class="reservation__table">
@@ -47,17 +85,17 @@
               </tr>
               <tr>
                 <th>Number</th>
-                <td><p id="output_number">人</p></td>
+                <td><p id="output_number"></p></td>
               </tr>
             </table>
             @auth
-              <input type="submit" class="register__btn" value="予約する">
+              <input type="submit" class="reservation__btn" value="予約する">
             @endauth
         </form>
         @guest
-          <div class="register__btn">  
-            <button>
-              <a href="/register">予約する</a>
+          <div >  
+            <button class="reservation__btn">
+              <a href="/login">予約する</a>
             </button>  
           </div>
         @endguest  

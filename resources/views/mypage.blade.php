@@ -36,11 +36,11 @@
                   </tr>
                   <tr>
                     <th>Date</th>
-                    <td>{{$reservation->date}}</td>
+                    <td>{{substr($reservation->datetime,0,9)}}</td>
                   </tr>
                   <tr>
                     <th>Time</th>
-                    <td>{{substr($reservation->time,0,5)}}</td>
+                    <td>{{substr($reservation->datetime,11,5)}}</td>
                   </tr>
                   <tr>
                     <th>Number</th>
@@ -68,9 +68,9 @@
               <div class="shop__btn flex-item">
                 <button class="detail__btn"><a href="{{ route('detail', ['shop_id' => $favorite->shop->id ]) }}">詳しくみる</a></button>
                 <form action="/delete/favorite" method="post">
-                @csrf
+                  @csrf
                   <input type="hidden" name="_token" value="{{csrf_token()}}">
-                  <input type="hidden" name="shop_id" value="{{$favorite->shop->id}}">
+                  <input type="hidden" name="shop_id" value="{{$favorite->shop_id}}">
                   <button type="submit" class="heart">❤️</button>
                 </form>   
               </div>  
