@@ -411,11 +411,11 @@ img {
 
 /*サンクスページ・予約完了ページ*/
 
-.register__container {
+.register__container{
   background: white;
+  text-align: center;
   width: 30%;
   padding: 8% 10%;
-  text-align: center;
   margin: 5% 25%;
   border-radius: 5px;
   line-height: 2;
