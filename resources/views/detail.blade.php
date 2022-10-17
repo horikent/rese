@@ -40,33 +40,33 @@
             <option value="14:30">14:30</option>
             <option value="15:00">15:00</option>
             <option value="15:30">15:30</option>
-            <option value="">16:00</option>
-            <option value="">16:30</option>
-            <option value="">17:00</option>
-            <option value="">18:00</option>
-            <option value="">18:30</option>
-            <option value="">19:00</option>
-            <option value="">19:30</option>
-            <option value="">20:00</option>
-            <option value="">20:30</option>
-            <option value="">21:00</option>
-            <option value="">21:30</option>
-            <option value="">22:00</option>
-            <option value="">22:30</option>
-            <option value="">23:00</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="18:30">18:30</option>
+            <option value="19:00">19:00</option>
+            <option value="19:30">19:30</option>
+            <option value="20:00">20:00</option>
+            <option value="20:30">20:30</option>
+            <option value="21:00">21:00</option>
+            <option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+            <option value="22:30">22:30</option>
+            <option value="23:00">23:00</option>
           </select>
           <select class="number" name="number">
             <option></option>
-            <option value="">1</option>
-            <option value="">2</option>
-            <option value="">3</option>
-            <option value="">4</option>
-            <option value="">5</option>
-            <option value="">6</option>
-            <option value="">7</option>
-            <option value="">8</option>
-            <option value="">9</option>
-            <option value="">10</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>
