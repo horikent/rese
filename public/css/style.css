@@ -106,16 +106,20 @@ a {
   background:white;
 }
 
-.drawer,
+.drawer{
+  color:#2F5CFF;
+  font-weight:bold;
+  font-size:28px;
+  line-height:0.5;
+  background:white;
+  }
+
 .drawer__logout{
   color:#2F5CFF;
   font-weight:bold;
   font-size:28px;
   line-height:0.5;
   background:white;
-}
-
-.drawer__logout {
   border: none;
   height: 25px;
 }
