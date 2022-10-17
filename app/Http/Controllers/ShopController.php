@@ -44,6 +44,8 @@ public function index(Request $request)
     }
 
     public function search(Request $request){
+        $areas=Area::all();
+        $genres=Genre::all();
         $area_id=$request->area_id;
         $genre_id=$request->genre_id;
         $name=$request->name;
@@ -76,6 +78,8 @@ public function index(Request $request)
         }           
 
         $param=[
+            'areas'=>$areas,
+            'genres'=>$genres,            
             'area_id'=>$area_id,
             'genre_id'=>$genre_id,
             'shops'=>$search,
