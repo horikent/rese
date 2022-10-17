@@ -106,12 +106,19 @@ a {
   background:white;
 }
 
-.drawer{
+.drawer,
+.drawer__logout{
   color:#2F5CFF;
   font-weight:bold;
   font-size:20px;
   line-height:0.5;
+  background:white;
 }
+.drawer__logout {
+  border: none;
+  height: 25px;
+}
+
 
 
 /*店舗一覧*/
@@ -480,7 +487,7 @@ img {
 /*会員登録ページ*/
 .register__Page {
   width: 500px;
-  margin: 5%re 30%;
+  margin: 5% 30%;
 }
 .register__container {
   text-align:center;

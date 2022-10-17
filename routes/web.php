@@ -15,6 +15,7 @@ Route::get('/mypage', [MypageController::class, 'index']);
 
 Route::get('/mypage/reservation', [ReservationController::class, 'find']);
 Route::post('/add/reservation', [ReservationController::class, 'create']);
+Route::post('/edit/reservation', [ReservationController::class, 'update']);
 Route::get('/done', [ReservationController::class, 'done']);
 Route::post('/delete/reservation', [ReservationController::class, 'remove']);
 

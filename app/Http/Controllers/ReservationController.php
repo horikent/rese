@@ -39,6 +39,25 @@ class ReservationController extends Controller
         return view('/done');
 	}
 
+    public function update(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $date = $request->date;
+        $time = ' '.$request->time;
+        $datetime = $date.=$time;
+        $reservations=Reservation::where('user_id', $user_id)->get();
+        $param = [
+            'user_id' => $user_id,
+            'shop_id'=> $request->shop_id,
+            'datetime' => $datetime,
+            'number' => $request->number,
+            '_token'=> $request->_token
+        ];    
+        unset($param['_token']);
+        Reservation::where('id', $request->id)->update($param);
+        return view('/mypage');
+	}
+
 
         public function remove(Request $request)
     {

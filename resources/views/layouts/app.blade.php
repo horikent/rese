@@ -17,13 +17,13 @@
             <li><a href="/"><span class="drawer">HOME</span></a></li>
             <form action="/logout" method="post">
               @csrf 
-              <li><input type="submit" class="drawer" value="LOGOUT"></li>
+              <li><input type="submit" class="drawer__logout" value="LOGOUT"></li>
             </form>
             <li><a href="/mypage"><span class="drawer">MYPAGE</span></a></li>
           </ul>
           @endauth
           @guest
-          <ul>
+          <ul class="drawer">
             <li><a href="/"><span class="drawer">HOME</span></a></li>
             <li><a href="/register"><span class="drawer">REGISTRATION</span></a></li>
             <li><a href="/login"><span class="drawer">LOGIN</span></a></li>

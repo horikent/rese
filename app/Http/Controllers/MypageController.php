@@ -14,10 +14,10 @@ class MypageController extends Controller
 
 public function index( Request $request)
     {
-        $id=Auth::id();
+        $user_id=Auth::id();
         $shops=Shop::all();
-        $reservations=Reservation::where('user_id', $id)->get();
-        $favorites=Favorite::where('user_id', $id)->get();
+        $reservations=Reservation::where('user_id', $user_id)->get();
+        $favorites=Favorite::where('user_id', $user_id)->get();
         $param=[
             'shops'=>$shops,
             'reservations'=>$reservations,

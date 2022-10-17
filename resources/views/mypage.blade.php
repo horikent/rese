@@ -44,7 +44,8 @@
                   </tr>
                   <tr>
                     <th>Number</th>
-                    <td>{{$reservation->number}}人</td>
+                    <td>{{$reservation->number}}
+                    </td>
                   </tr>
                 </table>       
               </div>
