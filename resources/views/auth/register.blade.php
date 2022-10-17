@@ -2,7 +2,7 @@
   <header class="shop__header">
     <div class="header__container flex-item">
 @section('content')
-  </header>  
+</header>  
     <div class="register__Page">
         <div class="register__container">
         <h4 class="register__title">&emsp;Register</h4>

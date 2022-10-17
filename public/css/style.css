@@ -411,27 +411,15 @@ img {
 
 /*サンクスページ・予約完了ページ*/
 
-.register__container{
+.done__container{
   background: white;
   text-align: center;
-  width: 30%;
+  margin: 5% auto;
+  width: 500px;
   padding: 8% 10%;
-  margin: 5% 25%;
   border-radius: 5px;
   line-height: 2;
   font-size: 20px;
-  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
-}
-
-.done__container{
-  background:white;
-  width:30%;
-  padding:8% 10%;
-  text-align: center;
-  margin:5% 25%;
-  border-radius:5px;
-  line-height:2;
-  font-size:20px;
   box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
 }
 
@@ -499,15 +487,15 @@ img {
 /*会員登録ページ*/
 .register__Page {
   width: 500px;
-  margin: 5% 30%;
+  margin: 5% auto;
 }
+
 .register__container {
-  text-align:center;
   background: white;
   text-align: center;
   width: 400px;
-  margin:5% auto;
   height: 220px;
+  padding: 8% 10%;  
   border-radius: 5px;
   line-height: 2;
   font-size: 20px;
