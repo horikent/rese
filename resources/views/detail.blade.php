@@ -30,43 +30,43 @@
           <input type="date" class="date" name="date" value="date"><br>
           <select class="time" name="time">
             <option></option>
-            <option>11:00</option>
-            <option>11:30</option>
-            <option>12:00</option>
-            <option>12:30</option>
-            <option>13:00</option>
-            <option>13:30</option>
-            <option>14:00</option>
-            <option>14:30</option>
-            <option>15:00</option>
-            <option>15:30</option>
-            <option>16:00</option>
-            <option>16:30</option>
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>18:30</option>
-            <option>19:00</option>
-            <option>19:30</option>
-            <option>20:00</option>
-            <option>20:30</option>
-            <option>21:00</option>
-            <option>21:30</option>
-            <option>22:00</option>
-            <option>22:30</option>
-            <option>23:00</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="">16:00</option>
+            <option value="">16:30</option>
+            <option value="">17:00</option>
+            <option value="">18:00</option>
+            <option value="">18:30</option>
+            <option value="">19:00</option>
+            <option value="">19:30</option>
+            <option value="">20:00</option>
+            <option value="">20:30</option>
+            <option value="">21:00</option>
+            <option value="">21:30</option>
+            <option value="">22:00</option>
+            <option value="">22:30</option>
+            <option value="">23:00</option>
           </select>
           <select class="number" name="number">
             <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <option value="">5</option>
+            <option value="">6</option>
+            <option value="">7</option>
+            <option value="">8</option>
+            <option value="">9</option>
+            <option value="">10</option>
           </select><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>
