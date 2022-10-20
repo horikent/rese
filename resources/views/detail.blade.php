@@ -8,7 +8,7 @@
 
 <div class="header__container flex-item">
 @section('content')
-  <div class="detail flex-item">  
+  <div class="detail">  
     <div class="detail__container flex-item">
       <div class="detail__container-small">
         <div class="shop__name flex-item">

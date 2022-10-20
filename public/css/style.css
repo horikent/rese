@@ -204,13 +204,27 @@ select::-ms-expand {
   margin-right:6%;
 }
 
-.shop__container {
-  display: grid;
-  column-count: 4;
-  width: 92%;
-  margin: 0 auto;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+
+@media screen and (max-width: 768px) {
+  .shop__container {
+    display: grid;
+    column-count: 2;
+    width: 92%;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop__container {
+    display: grid;
+    column-count: 4;
+    width: 92%;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
 }
 
 .shop__item {
@@ -274,9 +288,34 @@ img {
   margin: 5% 0;
 }
 
-.detail__container {
-  width: 40%;
-  margin: 0 3%;
+
+@media screen and (min-width: 768px) {
+  .detail {
+  display:flex;
+  }
+
+  .detail__container {
+    width: 44%;
+    margin: 0 2%;
+  }
+
+  .reservation__container {
+    margin: 0 3%;
+    padding: 5% 0 0 45px;
+
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .detail__container {
+    width: 80%;
+    margin: 0 14%;
+  }
+  .reservation__container {
+    margin: 0 auto;
+    padding: 5% 0 0 45px; 
+  }
 }
 
 .rounded-md{
@@ -293,10 +332,8 @@ img {
 }
 
 .reservation__container {
-  margin: 0 3%;
-  padding: 5% 0 0 45px;
   width: 400px;
-  height: 525px;
+  height: 525px;  
   background: #2F5CFF;
   color: white;
   border-radius: 5px;
