@@ -63,7 +63,7 @@
                   @csrf
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="hidden" name="shop_id" value="{{$shop->id}}">
-                    <button type="submit"><span class="heart">🤍</span></button>
+                    <button type="submit" class="heart">🤍</button>
                   </form>            
                 @elseif($favorites->exists(Auth::id(), $shop->id))
                   <form action="/delete/favorite" method="post">

@@ -384,13 +384,40 @@ img {
 
 /*マイページ*/
 
+.name__container{
+  text-align:center;
+}
+
+@media screen and (min-width: 768px) {
+  .mypage__container{
+    display:flex;
+  }
+  .reservation__container-small{
+    width: 35%;
+  }
+  .favorite__container {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reservation__container-small{
+    width: 80%;
+    margin:0 auto;
+  }
+  .favorite__container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
 .mypage__container{
   width:90%;
   justify-content: space-between;
   margin:0 auto;
 }
 .reservation__container-small {
-  width: 35%;
   height:100%;
   background:rgb(238, 238, 238);
   margin-top:75px;
@@ -432,10 +459,6 @@ img {
   color: white;
 }
 
-.favorite__container {
-  width: 50%;
-  margin: 0 auto;
-}
 
 .favorite__container-small {
   display: grid;

@@ -13,7 +13,10 @@
   
   @endguest
   @auth
-    <div class="mypage__container flex-item">  
+    <div class="name__container">  
+      <h2>{{Auth::user()->name}}さん</h2>
+    </div>
+    <div class="mypage__container">  
       <div class="reservation__container-small">
         <h3 class="reservation__ttl">予約状況</h3>
             @foreach($reservations as $reservation)
@@ -53,7 +56,6 @@
       </div>
       <div class="favorite__container">
         <div class="favorite-ttl">
-          <h2>{{Auth::user()->name}}さん</h2>
           <h3>お気に入り店舗</h3>
         </div>
         <div class="favorite__container-small">
