@@ -30,43 +30,17 @@
           <input type="date" class="date" name="date" value="date"><br>
           <select class="time" name="time">
             <option></option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
-            <option value="13:00">13:00</option>
-            <option value="13:30">13:30</option>
-            <option value="14:00">14:00</option>
-            <option value="14:30">14:30</option>
-            <option value="15:00">15:00</option>
-            <option value="15:30">15:30</option>
-            <option value="16:00">16:00</option>
-            <option value="16:30">16:30</option>
-            <option value="17:00">17:00</option>
-            <option value="18:00">18:00</option>
-            <option value="18:30">18:30</option>
-            <option value="19:00">19:00</option>
-            <option value="19:30">19:30</option>
-            <option value="20:00">20:00</option>
-            <option value="20:30">20:30</option>
-            <option value="21:00">21:00</option>
-            <option value="21:30">21:30</option>
-            <option value="22:00">22:00</option>
-            <option value="22:30">22:30</option>
+            @for($i=11; $i<=22; $i++)
+            <option value="{{$i}}:00">{{$i}}:00</option>
+            <option value="{{$i}}:30">{{$i}}:30</option>
+            @endfor
             <option value="23:00">23:00</option>
           </select>
           <select class="number" name="number">
             <option></option>
-            <option value="1">1人</option>
-            <option value="2">2人</option>
-            <option value="3">3人</option>
-            <option value="4">4人</option>
-            <option value="5">5人</option>
-            <option value="6">6人</option>
-            <option value="7">7人</option>
-            <option value="8">8人</option>
-            <option value="9">9人</option>
-            <option value="10">10人</option>
+            @for($i=1; $i<=10; $i++)
+            <option value="{{$i}}">{{$i}}人</option>
+            @endfor
           </select><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>

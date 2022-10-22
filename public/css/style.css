@@ -386,6 +386,7 @@ img {
 
 .name__container{
   text-align:center;
+  margin-bottom:-20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -403,8 +404,8 @@ img {
 
 @media screen and (max-width: 768px) {
   .reservation__container-small{
-    width: 80%;
-    margin:0 auto;
+    width: 70%;
+    margin:0 20% 0 auto;
   }
   .favorite__container {
     width: 80%;
@@ -427,14 +428,19 @@ img {
   color:black;
   margin-top:5px;
 }
+.reservation__count{
+  justify-content: space-between;
+}
 
 .clock{
   width:25px;
   height: 25px;
 }
-
-.reservation__count{
-  justify-content: space-between;
+.clock__count{
+  width:100px;
+}
+.count{
+  margin-bottom:10px;
 }
 
 .reservation__item {
@@ -448,9 +454,23 @@ img {
   border-radius: 5px;
 }
 
+.reservation__update{
+  background:rgb(84, 128, 247);
+  color:white;
+  height:20px;
+  width:150px;
+  border:none;
+}
+
 .batsu{
   background:none;
   border:none;
+}
+
+.update__btn{
+  margin-top:5px;
+  background:rgb(84, 128, 247);
+  color:white;
 }
 
 .mypage__table {

@@ -22,9 +22,9 @@
             @foreach($reservations as $reservation)
               <div class="reservation__item">
                 <div class="reservation__count flex-item">
-                  <div class="flex-item">
+                  <div class="clock__count flex-item">
                     <img src="img/clock.png" class="clock" alt="">
-                    <p>予約{{$loop->iteration}}</p>
+                    <p class="count">予約{{$loop->iteration}}</p>
                   </div>
                   <form action="/delete/reservation"  method="post">
                     @csrf  
@@ -32,25 +32,46 @@
                     <input type="submit" class="batsu" value="❌">
                   </form>  
                 </div>
-                <table class="mypage__table">
-                  <tr>
-                    <th>Shop</th>
-                    <td>{{$reservation->shop->name}}</td>
-                  </tr>
-                  <tr>
-                    <th>Date</th>
-                    <td>{{substr($reservation->datetime,0,9)}}</td>
-                  </tr>
-                  <tr>
-                    <th>Time</th>
-                    <td>{{substr($reservation->datetime,11,5)}}</td>
-                  </tr>
-                  <tr>
-                    <th>Number</th>
-                    <td>{{$reservation->number}}
-                    </td>
-                  </tr>
-                </table>       
+                <form action="/edit/favorite" method="post"></form>
+                  <table class="mypage__table">
+                    <tr>
+                      <th>Shop</th>
+                      <td>{{$reservation->shop->name}}</td>
+                    </tr>
+                    <tr>
+                      <th>Date</th>
+                      <td><input type="text" class="reservation__update" name="date" id="output_date" value="{{\Carbon\Carbon::parse($reservation->datetime)->format('Y/m/d')}}"></td>
+                    </tr>
+                    <tr>
+                      <th>Time</th>
+                      <td>          
+                        <select class="reservation__update" name="time">
+                          @for($i=11; $i<=22; $i++)
+                            <option value="{{$i}}:00" @if($i===substr($reservation->datetime,11,5)) selected @endif>{{$i}}:00</option>
+                            <option value="{{$i}}:30" @if($i===substr($reservation->datetime,11,5)) selected @endif>{{$i}}:30</option>
+                          @endfor
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Number</th>
+                      <td>          
+                        <select class="reservation__update" name="number">
+                          @for($i=1; $i<=10; $i++)
+                          <option value="{{$i}}" @if($reservation->number===$i) selected @endif>{{$i}}人</option>
+                          @endfor
+                        </select><br></td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td>                  
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="shop_id" value="{{$reservation->shop_id}}">
+                        <button type="submit" class="update__btn">予約変更</button> 
+                      </td>
+                    </tr>
+                  </table>       
+                </form>
               </div>
             @endforeach
       </div>
