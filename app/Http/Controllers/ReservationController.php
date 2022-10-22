@@ -45,8 +45,8 @@ class ReservationController extends Controller
         $date = $request->date;
         $time = ' '.$request->time;
         $datetime = $date.=$time;
-        $reservations=Reservation::where('user_id', $user_id)->get();
         $param = [
+            'id' => $request->id,
             'user_id' => $user_id,
             'shop_id'=> $request->shop_id,
             'datetime' => $datetime,
@@ -55,6 +55,7 @@ class ReservationController extends Controller
         ];    
         unset($param['_token']);
         Reservation::where('id', $request->id)->update($param);
+        $reservations=Reservation::where('user_id', $user_id)->get();
         return view('/mypage');
 	}
 

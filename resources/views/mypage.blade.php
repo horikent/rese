@@ -32,7 +32,8 @@
                     <input type="submit" class="batsu" value="❌">
                   </form>  
                 </div>
-                <form action="/edit/favorite" method="post"></form>
+                <form action="/edit/reservation" method="post">
+                  @csrf
                   <table class="mypage__table">
                     <tr>
                       <th>Shop</th>
@@ -40,15 +41,15 @@
                     </tr>
                     <tr>
                       <th>Date</th>
-                      <td><input type="text" class="reservation__update" name="date" id="output_date" value="{{\Carbon\Carbon::parse($reservation->datetime)->format('Y/m/d')}}"></td>
+                      <td><input type="text" class="reservation__update" name="date" id="output_date" value="{{\Carbon\Carbon::parse($reservation->datetime)->format('Y-m-d')}}"></td>
                     </tr>
                     <tr>
                       <th>Time</th>
                       <td>          
                         <select class="reservation__update" name="time">
                           @for($i=11; $i<=22; $i++)
-                            <option value="{{$i}}:00" @if($i===substr($reservation->datetime,11,5)) selected @endif>{{$i}}:00</option>
-                            <option value="{{$i}}:30" @if($i===substr($reservation->datetime,11,5)) selected @endif>{{$i}}:30</option>
+                            <option value="{{$i}}:00" @if(\Carbon\Carbon::parse($reservation->datetime)->format('H:i')===$i.':00') selected @endif>{{$i}}:00</option>
+                            <option value="{{$i}}:30" @if(\Carbon\Carbon::parse($reservation->datetime)->format('H:i')===$i.':30') selected @endif>{{$i}}:30</option>
                           @endfor
                         </select>
                       </td>
@@ -66,6 +67,7 @@
                       <th></th>
                       <td>                  
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        <input type="hidden" name="id" value="{{$reservation->id}}">
                         <input type="hidden" name="shop_id" value="{{$reservation->shop_id}}">
                         <button type="submit" class="update__btn">予約変更</button> 
                       </td>
