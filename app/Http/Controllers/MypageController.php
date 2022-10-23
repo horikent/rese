@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class MypageController extends Controller
 {
 
-public function index( Request $request)
+    public function index( Request $request)
     {
         $user_id=Auth::id();
         $shops=Shop::all();
@@ -25,4 +25,5 @@ public function index( Request $request)
         ];
         return view('/mypage', $param);
     }
+    
 }

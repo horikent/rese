@@ -454,13 +454,25 @@ img {
   border-radius: 5px;
 }
 
-.reservation__update{
+.reservation__date{
+width:147px;
+}
+
+.reservation__time,
+.reservation__number{
+  width:150px;
+}
+
+.reservation__date,
+.reservation__time,
+
+.reservation__number{
   background:rgb(84, 128, 247);
   color:white;
   height:20px;
-  width:150px;
   border:none;
 }
+
 
 .batsu{
   background:none;
@@ -495,12 +507,14 @@ img {
 
 /*サンクスページ・予約完了ページ*/
 
+.thanks__container,
 .done__container{
   background: white;
   text-align: center;
   margin: 5% auto;
-  width: 500px;
-  padding: 8% 10%;
+  width: 400px;
+  height:150px;
+  padding: 10% 10%;
   border-radius: 5px;
   line-height: 2;
   font-size: 20px;

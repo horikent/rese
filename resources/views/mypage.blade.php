@@ -41,12 +41,12 @@
                     </tr>
                     <tr>
                       <th>Date</th>
-                      <td><input type="text" class="reservation__update" name="date" id="output_date" value="{{\Carbon\Carbon::parse($reservation->datetime)->format('Y-m-d')}}"></td>
+                      <td><input type="text" class="reservation__date" name="date" id="output_date" value="{{\Carbon\Carbon::parse($reservation->datetime)->format('Y-m-d')}}"></td>
                     </tr>
                     <tr>
                       <th>Time</th>
                       <td>          
-                        <select class="reservation__update" name="time">
+                        <select class="reservation__time" name="time">
                           @for($i=11; $i<=22; $i++)
                             <option value="{{$i}}:00" @if(\Carbon\Carbon::parse($reservation->datetime)->format('H:i')===$i.':00') selected @endif>{{$i}}:00</option>
                             <option value="{{$i}}:30" @if(\Carbon\Carbon::parse($reservation->datetime)->format('H:i')===$i.':30') selected @endif>{{$i}}:30</option>
@@ -57,7 +57,7 @@
                     <tr>
                       <th>Number</th>
                       <td>          
-                        <select class="reservation__update" name="number">
+                        <select class="reservation__number" name="number">
                           @for($i=1; $i<=10; $i++)
                           <option value="{{$i}}" @if($reservation->number===$i) selected @endif>{{$i}}人</option>
                           @endfor

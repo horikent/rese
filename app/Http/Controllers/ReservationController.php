@@ -4,23 +4,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Shop;
 use App\Models\Reservation;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
-    public function find(Request $request)
-    {
-
-        $users = Auth::user();
-        $reservations = Reservation::where('user_id', Auth::id())->get();
-        $param=[
-            'date'=>$date,
-            'reservations'=>$reservations,
-            'users'=>$users
-        ];
-        return view('/index', $param);
-    }
 
     public function create(Request $request)
     {
@@ -39,6 +28,7 @@ class ReservationController extends Controller
         return view('/done');
 	}
 
+
     public function update(Request $request)
     {
         $user_id = Auth::user()->id;
@@ -55,10 +45,8 @@ class ReservationController extends Controller
         ];    
         unset($param['_token']);
         Reservation::where('id', $request->id)->update($param);
-        $reservations=Reservation::where('user_id', $user_id)->get();
-        return view('/mypage');
+        return view('/done');
 	}
-
 
         public function remove(Request $request)
     {

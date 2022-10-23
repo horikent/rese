@@ -6,9 +6,10 @@
 @endsection
 @section('content')
   </header>
-  <div class="register__container">
+  <div class="thanks__container">
     <p>会員登録ありがとうございます</p>
     <button class="login__btn">
       <a href="/">ログインする</a></button>
   </div>
 @endsection
+
