@@ -6,12 +6,13 @@ use App\Models\Shop;
 use App\Models\Reservation;
 use App\Models\Favorite;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReservationRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
 
-    public function create(Request $request)
+    public function create(ReservationRequest $request)
     {
         $user_id = Auth::user()->id;
         $shops = Shop::with('reservations')->get();
@@ -29,7 +30,7 @@ class ReservationController extends Controller
 	}
 
 
-    public function update(Request $request)
+    public function update(ReservationRequest $request)
     {
         $user_id = Auth::user()->id;
         $date = $request->date;

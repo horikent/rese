@@ -82,6 +82,7 @@
                 @endif  
               @endauth
               @guest
+                @csrf
                 <a href="/login"><button  class="heart">🤍</button></a>
               @endguest  
             </div>  

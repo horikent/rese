@@ -30,5 +30,8 @@ class Shop extends Model
     public function favorites() {
         return $this->hasMany(Favorite::class);
     }
-    
+    public function reviews() { 
+        return $this->hasMany(\App\ShopReview::class, 'shop_id', 'id');
+
+    }
 }

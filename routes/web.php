@@ -11,6 +11,9 @@ Route::get('/detail/{shop_id}',  [ShopController::class, 'detail'])-> name('deta
 Route::post('/search', [ShopController::class, 'search']);
 Route::get('/thanks', [ShopController::class, 'thanks']);
 
+Route::get('/list', 'ShopController@list');
+Route::post('/review', 'ShopController@review');
+
 Route::get('/mypage', [MypageController::class, 'index']);
 
 Route::post('/add/reservation', [ReservationController::class, 'create']);
