@@ -20,11 +20,9 @@ return new class extends Migration
             $table->foreignId('genre_id');
             $table->text('detail');
             $table->text('image');
-            $table->string('name')->comment('店舗名');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });
-
     }
 
     /**
