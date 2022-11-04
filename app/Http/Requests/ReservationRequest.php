@@ -29,7 +29,7 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'date'=>'required',
+            'date'=>'required|regex:<^[202]{3}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$>|after:today|before:1 months',
             'time'=>'required',
             'number'=>'required',
         ];
@@ -40,7 +40,8 @@ class ReservationRequest extends FormRequest
     return [
         'name.required' => '名前は必須項目です',
         'date.required' => '日付は必須項目です',
-        'time.required' => '日付は必須項目です',
+        'date.regex' => '日付は半角数字と-にて10桁でご記入下さい',
+        'time.required' => '時間は必須項目です',
     ];
     }
 }

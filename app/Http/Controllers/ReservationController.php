@@ -17,7 +17,7 @@ class ReservationController extends Controller
         $user_id = Auth::user()->id;
         $shops = Shop::with('reservations')->get();
         $date = $request->date;
-        $time = ' '.$request->time.':00';
+        $time = ' '.$request->time;
         $datetime = $date.=$time;
         $param = [
             'user_id' => $user_id,

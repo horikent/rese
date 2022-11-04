@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('shop_reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('shop_id');
-            $table->datetime('datetime');
-            $table->integer('number');
-            $table->timestamp('created_at')->useCurrent()->nullable();
-            $table->timestamp('updated_at')->useCurrent()->nullable();
+            $table->unsignedBigInteger('shop_id')->default(0);
+            $table->unsignedBigInteger('user_id')->default(0);
+            $table->integer('stars');
+            $table->text('comment');
+            $table->timestamps();
+            $table->foreign('shop_id')->references('id')->on('shops');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unique(['shop_id', 'user_id']);
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('shop_reviews');
     }
 };

@@ -1,7 +1,4 @@
-
 @extends('layouts.app')
-
-
 
 @section('header')
 @endsection    
@@ -24,6 +21,15 @@
       </div>
     </div>    
     <div class="reservation__container">
+      @if ($errors->any())
+        <div class="alert alert-danger mt-3">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       <h2>予約</h2>
         <form action="/add/reservation" method="post">
         @csrf 
@@ -75,4 +81,28 @@
         @endguest  
     </div>
   </div>
+  <div class="review__container">
+    @if(isset($shop_reviews))
+      <div class=review__container-small>
+        @foreach($shop_reviews as $shop_review)
+          <dl class="review__item">
+            <dt>
+              <div class="star__container">
+                @for($i=0; $i < $shop_review->stars; $i++) 
+                <span class="fa fa-star checked"></span>
+                @endfor
+                @for ($j=0; $i+$j < 5; $j++)
+                <span class="fa fa-star unchecked"></span>
+                @endfor
+              </div>
+            </dt>
+            <dd>
+              <p>{{$shop_review->comment}}</p>
+            </dd>
+          </dl>
+        @endforeach 
+      </div>    
+    @endisset
+  </div>
 @endsection
+

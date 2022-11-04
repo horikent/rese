@@ -57,6 +57,7 @@ a {
   top: 20px;
   background: #2F5CFF;
   border-radius: 5px;
+  z-index:5;
 }
 
 .menu__line--top,
@@ -89,6 +90,7 @@ a {
   top: 14px;
   width: 64%;
   transform: rotate(45deg);
+
 }
 
 .menu.open span:nth-of-type(2) {
@@ -104,6 +106,7 @@ a {
 .in {
   transform: translateX(100%);
   background:white;
+  z-index:3
 }
 
 .drawer{
@@ -161,6 +164,7 @@ select::-ms-expand {
   top: 48px;
   width: 0;
   pointer-events: none;
+  z-index: 0;
 }
 
 .area::after {
@@ -352,17 +356,19 @@ img {
 
 .date{
   width:50%;
+  height:25px;
+  border:none;
 }
 
 .time,
 .number {
   width: 90%;
+  height:22px;
 }
 
-.date, 
+.date,   
 .time,
 .number {
-  height:22px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -382,7 +388,48 @@ img {
   background:rgb(0, 63, 245);
 }
 
+.review__container{
+  width:60%;
+  text-align:center;
+  border-radius: 5px;
+  margin:130px auto 0 auto;
+}
+
+.review__container-small{
+  text-align: center;
+  margin:-20px auto 50px auto;
+  width:60%;
+}
+@media screen and (min-width: 768px) {
+.review__item{
+  display:flex;
+  justify-content: space-between;
+}
+}
+
+.review__item{
+  background: white;
+  padding:20px 50px;
+  border-radius: 10px;
+}
+
+.checked {
+  color: orange;
+}
+.unchecked {
+  color: grey;
+}
+
+.star__container{
+  margin:0 auto;
+  width:100px;
+  margin-top:20px;
+}
 /*マイページ*/
+
+.mypage__guest{
+  text-align: center;
+}
 
 .name__container{
   text-align:center;
@@ -393,37 +440,51 @@ img {
   .mypage__container{
     display:flex;
   }
-  .reservation__container-small{
+  .reservation__history__container{
     width: 35%;
   }
   .favorite__container {
     width: 50%;
-    margin: 0 auto;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .reservation__container-small{
+  .reservation__history__container{
     width: 70%;
     margin:0 20% 0 auto;
   }
   .favorite__container {
     width: 80%;
-    margin: 0 auto;
   }
 }
+
 
 .mypage__container{
   width:90%;
   justify-content: space-between;
   margin:0 auto;
 }
-.reservation__container-small {
-  height:100%;
+
+.reservation__history__container {
   background:rgb(238, 238, 238);
-  margin-top:75px;
+  margin-top:25px;
 }
 
+.reservation__container-small{
+  background:rgb(238, 238, 238);
+  margin:20px 20px;
+  padding-bottom:20px;
+}
+
+.history__container{
+  height:30%;
+  background:rgb(238, 238, 238);
+  margin:20px 20px;
+}
+
+.favorite__container {
+  margin: 10px auto 0 auto;
+}
 .reservation__ttl{
   color:black;
   margin-top:5px;
@@ -434,28 +495,41 @@ img {
 
 .clock{
   width:25px;
-  height: 25px;
+  height:25px;
+  margin-top:20px;
+  margin-right:5px;
 }
 .clock__count{
   width:100px;
 }
-.count{
-  margin-bottom:10px;
-}
 
-.reservation__item {
+.reservation__item,
+.history__item{
   text-align: left;
-  padding:20px;
   background: #2F5CFF;
   line-height:2;
   width: 100%;
-  height: 200px;
   margin-bottom: 10px;
   border-radius: 5px;
+  background-size: cover;
+}
+
+.reservation__item{
+  height: 200px;
+  padding:0 30px 40px;
+}
+.history__item{
+  height: 200px;
+  padding:15px 30px 5px;
+}
+
+.reservation__th,
+.reservatioin__name{
+  color:white;
 }
 
 .reservation__date{
-width:147px;
+  width:147px;
 }
 
 .reservation__time,
@@ -464,8 +538,7 @@ width:147px;
 }
 
 .reservation__date,
-.reservation__time,
-
+.reservation__time,  
 .reservation__number{
   background:rgb(84, 128, 247);
   color:white;
@@ -473,10 +546,26 @@ width:147px;
   border:none;
 }
 
+.reservation__date::after,
+.reservation__time::after,
+.reservation__number::after {
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid black;
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: 200px;
+  width: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
 
 .batsu{
   background:none;
   border:none;
+  margin-top:20px;
 }
 
 .update__btn{
@@ -485,83 +574,170 @@ width:147px;
   color:white;
 }
 
-.mypage__table {
-  width:80%;
-  font-size:14px;
-  color: white;
+/*モーダル*/
+.reviewBtn{
+border-radius: 5px;
+padding:5px;
+margin:5px 60% 20px 20px;
+background:rgb(84, 128, 247);
+color:white;
+display: block;
 }
 
+.modal {
+display: none;
+position: fixed;
+left: 0%;
+top: 0%;
+height: 100vh;
+width: 100vw;
+background-color: rgba(0,0,0,0.5);
+}
+
+.modal__content{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+
+.modal__content-inner{
+background-color: white;
+width: 500px;
+text-align: center;
+padding: 50px;
+}
+
+/*star*/
+
+.rate-form {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width:30%;
+  margin:-20px auto 10px auto;
+}
+.rate-form input[type=radio] {
+  display: none;
+}
+.rate-form label {
+  position: relative;
+  padding: 20px 10px 0;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 50px;
+  margin:0 10%;
+}
+
+.evaluation{
+  display:flex;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.rate-form label:hover {
+  color: #ffcc00;
+}
+.rate-form label:hover ~ label {
+  color: #ffcc00;
+}
+.rate-form input[type=radio]:checked ~ label {
+  color: #ffcc00;
+}
+
+.comment{
+width:350px;
+height:80px;
+}
+
+#closeBtn{
+padding:5px 10px;
+border-radius: 3px;
+}
+
+.myreservation__table {
+width:80%;
+font-size:14px;
+color: white;
+}
+
+.history__table{
+width:80%;
+font-size:14px;
+color: white;
+}
 
 .favorite__container-small {
-  display: grid;
-  column-count: 2;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 100%;
-  margin: 0 auto;
+display: grid;
+column-count: 2;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+width: 100%;
+margin: 0 auto;
 }
 
 .favorite-ttl {
-  width: 100%;
+width: 100%;
 }
 
 /*サンクスページ・予約完了ページ*/
 
 .thanks__container,
 .done__container{
-  background: white;
-  text-align: center;
-  margin: 5% auto;
-  width: 400px;
-  height:150px;
-  padding: 10% 10%;
-  border-radius: 5px;
-  line-height: 2;
-  font-size: 20px;
-  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+background: white;
+text-align: center;
+margin: 5% auto;
+width: 400px;
+height:150px;
+padding: 10% 10%;
+border-radius: 5px;
+line-height: 2;
+font-size: 20px;
+box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
 }
 
 
 /*ログインページ*/
 
 .login__container{
-  background: white;
-  text-align: center;
-  margin:0 auto;
-  width: 500px;
-  height:260px;
-  border-radius: 5px;
-  line-height: 2;
-  font-size: 20px;
-  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+background: white;
+text-align: center;
+margin:0 auto;
+width: 500px;
+border-radius: 5px;
+line-height: 2;
+font-size: 20px;
+padding-bottom:10px;
+box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+background-size: cover;
 }
 
 
 .login__title {
-  background: #2F5CFF;
-  text-align:left;
-  padding: 3% 0;
-  width: 100%;
-  color:white;
+background: #2F5CFF;
+text-align:left;
+padding: 3% 0;
+width: 100%;
+color:white;
 }
 
 
 .form-group{
-  margin-bottom:10px;
-  padding:5px;
+margin-bottom:10px;
+padding:5px;
 }
 
 .form-control{
-  text-align: left;
-  padding:5px;
-  width:80%;
+text-align: left;
+padding:5px;
+width:80%;
 }
 
 .login__btn,
 .login__Btn{
-  color: white;
-  background: #2F5CFF;
-  border-radius: 5px;
+color: white;
+background: #2F5CFF;
+border-radius: 5px;
 }
 
 .login__btn{
@@ -583,6 +759,10 @@ width:147px;
 }
 
 /*会員登録ページ*/
+
+.help-block{
+  font-size: 12px;
+}
 .register__Page {
   width: 500px;
   margin: 5% auto;
@@ -592,7 +772,7 @@ width:147px;
   background: white;
   text-align: center;
   width: 400px;
-  height: 220px;
+  background-size: cover;
   padding: 8% 10%;  
   border-radius: 5px;
   line-height: 2;

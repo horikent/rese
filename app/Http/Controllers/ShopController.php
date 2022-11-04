@@ -6,6 +6,7 @@ use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Favorite;
 use App\Models\Reservation;
+use App\Models\ShopReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,9 +37,11 @@ public function index(Request $request)
 
     public function detail(Request $request, $shop_id){
         $shop=Shop::find($shop_id);
+        $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();
         $param=[
         'shop_id'=>$shop_id,
-        'shop'=>$shop
+        'shop'=>$shop,
+        'shop_reviews' =>$shop_reviews
         ];
         return view('detail', $param);
     }
@@ -92,44 +95,5 @@ public function index(Request $request)
     public function thanks(Request $request){
 
         return view('/thanks');
-    }
-
-    public function review(Request $request) {
-
-        $result = false;
-
-        $request->validate([
-            'shop_id' => [
-                'required',
-                'exists:shops,id',
-                function($attribute, $value, $fail) use($request) {
-
-                    if(!auth()->check()) {
-
-                        $fail('レビューするにはログインしてください。');
-                        return;
-                    }
-
-                    $exists = \App\ShopReview::where('user_id', $request->user()->id)
-                        ->where('shop_id', $request->shop_id)
-                        ->exists();
-
-                    if($exists) {
-                        $fail('すでにレビューは投稿済みです。');
-                        return;
-                    }
-                }
-            ],
-            'stars' => 'required|integer|min:1|max:5',
-            'comment' => 'required'
-        ]);
-
-        $review = new \App\ShopReview();
-        $review->shop_id = $request->shop_id;
-        $review->user_id = $request->user()->id;
-        $review->stars = $request->stars;
-        $review->comment = $request->comment;
-        $result = $review->save();
-        return ['result' => $result];
     }
 }
