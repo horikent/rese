@@ -32,5 +32,6 @@ class ShopReviewController extends Controller
         ShopReview::create($param);
         return back();
     }    
+
 }
 

@@ -17,7 +17,8 @@ class ShopController extends Controller
 
 public function index(Request $request)
     {
-        $id=Auth::id();
+
+    $id=Auth::id();
         $shops=Shop::all();
         $areas=Area::all();
         $genres=Genre::all();
