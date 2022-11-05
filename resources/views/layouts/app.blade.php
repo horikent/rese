@@ -19,10 +19,11 @@
           @auth
           <ul class="drawer">
             <li><a href="/"><span class="drawer">HOME</span></a></li>
-            <form action="/logout" method="post">
+            <li><form action="/logout" method="post">
               @csrf 
-              <li><input type="submit" class="drawer__logout" value="LOGOUT"></li>
+              <input type="submit" class="drawer__logout" value="LOGOUT">
             </form>
+            </li>
             <li><a href="/mypage"><span class="drawer">MYPAGE</span></a></li>
           </ul>
           @endauth

@@ -120,11 +120,11 @@ a {
 .drawer__logout{
   color:#2F5CFF;
   font-weight:bold;
-  font-size:28px;
+  font-size:30px;
   line-height:0.5;
   background:white;
   border: none;
-  height: 25px;
+  height: 30px;
 }
 
 
@@ -569,9 +569,11 @@ img {
 }
 
 .update__btn{
-  margin-top:5px;
+  margin-top:10px;
   background:rgb(84, 128, 247);
   color:white;
+  padding:5px 10px;
+  border-radius: 3px;
 }
 
 /*モーダル*/
