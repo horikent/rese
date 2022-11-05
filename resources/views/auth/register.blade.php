@@ -9,7 +9,7 @@
             <form id="new_user" action="{{ route('register') }}" accept-charset="UTF-8" method="post">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    <input class="form-control" placeholder="Username" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                    <input class="form-control" placeholder="Username" type="text" name="name" value="{{ old('name') }}" required autofocus><br>
                     @if ($errors->has('name'))
                         <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
@@ -17,7 +17,7 @@
                     @endif
                 </div>
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input class="form-control" placeholder="Email" autocomplete="email" type="email" name="email" value="{{ old('email') }}" required>
+                    <input class="form-control" placeholder="Email" autocomplete="email" type="email" name="email" value="{{ old('email') }}" required><br>
                         @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -25,7 +25,7 @@
                         @endif
                 </div>
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="password" required>
+                    <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="password" required><br>
                     @if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
