@@ -25,8 +25,8 @@ Route::post('/delete/favorite', [FavoriteController::class, 'remove']);
 Route::post('/add/review', [ShopReviewController::class, 'create']);
 
 
-Route::get('/register', function () {
-    return view('/thanks');
+Route::get('/thanks', function () {
+    return view('thanks');
 })->middleware(['verified'])->name('thanks');
 
 require __DIR__.'/auth.php';
