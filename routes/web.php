@@ -24,6 +24,8 @@ Route::post('/delete/favorite', [FavoriteController::class, 'remove']);
 
 Route::post('/add/review', [ShopReviewController::class, 'create']);
 
+Route::get('/admin', [AdminController::class, 'index']);
+Route::post('/add/manager', [AdminController::class, 'create']);
 
 Route::get('/thanks', function () {
     return view('thanks');

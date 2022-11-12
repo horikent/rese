@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\Shop;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReservationRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function index(LoginRequest $request)
+    {
+        return view('/admin');
+	}
+
     public function create(LoginRequest $request)
     {
-        $user_id = Auth::user()->id;
-        $shops = Shop::with('reservations')->get();
+        $name = $request -> name;
+        $email = $request->email;
+        $password = $request->password;
         $param = [
-            'user_id' => $user_id,
-            'shop_id'=> $request->shop_id,
-            'datetime' => $datetime,
-            'number' => $request->number
+            'name'=> $name,
+            'email' => $email,
+            'password' => $password
         ];    
         User::create($param);
-        return view('/');
+        return view('/admin');
 	}
 
 }
