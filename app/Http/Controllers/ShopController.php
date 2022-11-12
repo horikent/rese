@@ -17,84 +17,82 @@ class ShopController extends Controller
 
 public function index(Request $request)
     {
-
     $id=Auth::id();
-        $shops=Shop::all();
-        $areas=Area::all();
-        $genres=Genre::all();
-        $shop_id=Favorite::with('shop_id');
-        $favorites=Favorite::all()->first();
-    
-        $param=[
-            'id'=>$id,
-            'shops'=>$shops,
-            'areas'=>$areas,
-            'genres'=>$genres,
-            'shop_id'=>$shop_id,
-            'favorites'=>$favorites
-        ];
-        return view('/index', $param);
-    }
-
-    public function detail(Request $request, $shop_id){
-        $shop=Shop::find($shop_id);
-        $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();
-        $param=[
+    $shops=Shop::all();
+    $areas=Area::all();
+    $genres=Genre::all();
+    $shop_id=Favorite::with('shop_id');
+    $favorites=Favorite::all()->first();
+    $param=[
+        'id'=>$id,
+        'shops'=>$shops,
+        'areas'=>$areas,
+        'genres'=>$genres,
         'shop_id'=>$shop_id,
-        'shop'=>$shop,
-        'shop_reviews' =>$shop_reviews
-        ];
-        return view('detail', $param);
+        'favorites'=>$favorites
+    ];
+    return view('/index', $param);
     }
 
-    public function search(Request $request){
-        $areas=Area::all();
-        $genres=Genre::all();
-        $area_id=$request->area_id;
-        $genre_id=$request->genre_id;
-        $name=$request->name;
-        $shop_id=Favorite::with('shop_id');
-        $favorites=Favorite::all()->first();
+public function detail(Request $request, $shop_id){
+    $shop=Shop::find($shop_id);
+    $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();
+    $param=[
+    'shop_id'=>$shop_id,
+    'shop'=>$shop,
+    'shop_reviews' =>$shop_reviews
+    ];
+    return view('detail', $param);
+}
 
-        if(!empty($area_id)){
-            $search=Shop::where('area_id', $area_id)->get();
-        }        
-        if(!empty($genre_id)){
-            $search=Shop::where('genre_id', $genre_id)->get();
-        }        
-        if(!empty($name)){
-            $search=Shop::where('name', 'like', "%{$name}%")->get();
-        }        
-        if(!empty($area_id)&&($genre_id)){
-            $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->get();
-        }  
-        if(!empty($area_id)&&($name)){
-            $search=Shop::where('area_id', $area_id)->where('name', 'like', "%{$name}%")->get();
-        }  
-        if(!empty($$genre_id)&&($name)){
-            $search=Shop::where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
-        }  
-        if(!empty($area_id)&&($genre_id)&&($name)){
-            $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
-        }     
-        if((empty($area_id))&&(empty($genre_id))&&(empty($name))){
-            $search=Shop::all();
-        }           
+public function search(Request $request){
+    $areas=Area::all();
+    $genres=Genre::all();
+    $area_id=$request->area_id;
+    $genre_id=$request->genre_id;
+    $name=$request->name;
+    $shop_id=Favorite::with('shop_id');
+    $favorites=Favorite::all()->first();
 
-        $param=[
-            'areas'=>$areas,
-            'genres'=>$genres,            
-            'area_id'=>$area_id,
-            'genre_id'=>$genre_id,
-            'shops'=>$search,
-            'shop_id'=>$shop_id,
-            'favorites'=>$favorites
-        ];
-        return view('/index', $param);
-    }
+    if(!empty($area_id)){
+        $search=Shop::where('area_id', $area_id)->get();
+    }        
+    if(!empty($genre_id)){
+        $search=Shop::where('genre_id', $genre_id)->get();
+    }        
+    if(!empty($name)){
+        $search=Shop::where('name', 'like', "%{$name}%")->get();
+    }        
+    if(!empty($area_id)&&($genre_id)){
+        $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->get();
+    }  
+    if(!empty($area_id)&&($name)){
+        $search=Shop::where('area_id', $area_id)->where('name', 'like', "%{$name}%")->get();
+    }  
+    if(!empty($$genre_id)&&($name)){
+        $search=Shop::where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
+    }  
+    if(!empty($area_id)&&($genre_id)&&($name)){
+        $search=Shop::where('area_id', $area_id)->where('genre_id', $genre_id)->where('name', 'like', "%{$name}%")->get();
+    }     
+    if((empty($area_id))&&(empty($genre_id))&&(empty($name))){
+        $search=Shop::all();
+    }           
 
-    public function thanks(Request $request){
+    $param=[
+        'areas'=>$areas,
+        'genres'=>$genres,            
+        'area_id'=>$area_id,
+        'genre_id'=>$genre_id,
+        'shops'=>$search,
+        'shop_id'=>$shop_id,
+        'favorites'=>$favorites
+    ];
+    return view('/index', $param);
+}
 
-        return view('/thanks');
+public function thanks(Request $request){
+
+    return view('/thanks');
     }
 }
