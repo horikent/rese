@@ -34,6 +34,42 @@ public function index(Request $request)
     return view('/index', $param);
     }
 
+    public function create(Request $request)
+    {
+    $name=$request->name;
+    $area_id=$request->area_id;
+    $genre_id=$request->genre_id;
+    $detail=$request->detail;
+    if($genre_id == 1) 
+        $image="img/sushi.jpg";
+    if($genre_id == 2) 
+        $image="img/yakiniku.jpg";
+    if($genre_id == 3) 
+        $image="img/izakaya.jpg";
+    if($genre_id == 4) 
+        $imagee="img/italian.jpg";
+    if($genre_id == 5) 
+        $image="img/ramen.jpg";
+    $param=[
+        'name'=>$name,
+        'area_id'=>$area_id,
+        'genre_id'=>$genre_id,
+        'detail'=>$detail,
+        'area_id'=>$area_id,
+        'image'=>$image
+    ];
+    Shop::create($param);
+
+    $areas=Area::all();
+    $genres=Genre::all();
+    $id=Auth::id();
+    $param=[
+        'areas'=>$areas,
+        'genres'=>$genres
+    ];
+    return view('/complete', $param);
+    }
+
 public function detail(Request $request, $shop_id){
     $shop=Shop::find($shop_id);
     $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();

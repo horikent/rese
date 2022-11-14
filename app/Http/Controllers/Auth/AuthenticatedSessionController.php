@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Area;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,10 +33,20 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        $admin=User::with('admin');
+        $admin=Auth::user()->admin;
+        $manager=Auth::user()->manager;
+        $id=Auth::id();
+        $areas=Area::all();
+        $genres=Genre::all();
+        $param=[
+            'areas'=>$areas,
+            'genres'=>$genres
+        ];
         if(isset($admin))
             return view('/admin');     
-        else
+        elseif(isset($manager))
+            return view('/manager', $param);
+        else    
             return redirect('/');
     }
 

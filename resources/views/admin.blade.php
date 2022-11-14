@@ -10,8 +10,8 @@
     <div class="register__Page">
       <div class="register__container">
       <h4 class="register__title">&emsp;管理者用：店舗代表者登録画面</h4>
-          <form id="new_user" action="{{ route('register') }}" accept-charset="UTF-8" method="post">
-              {{ csrf_field() }}
+          <form action="/add/manager" method="post">
+            @csrf
               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                   <input class="form-control" placeholder="Username" type="text" name="name" value="{{ old('name') }}" required autofocus><br>
                   @if ($errors->has('name'))
@@ -36,7 +36,7 @@
                   </span>
                   @endif
               </div>
-              <input type="hidden" name="admin" value="0">
+              <input type="hidden" name="admin" value="">
               <input type="hidden" name="manager" value="1">
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
