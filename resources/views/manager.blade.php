@@ -27,7 +27,7 @@
                     <option value="{{$area->id}}">{{$area->area}}</option>
                   @endforeach
                 </select>  
-              </div><br>
+              </div>
               <div class="genre">
                 <select name="genre_id" class=register__genre>
                   <option value="">ジャンル：ご選択ください▼</option>
@@ -48,8 +48,13 @@
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
       </div>    
-      <div>
+      <div class=registered__shop>
         @foreach($managements as $management)
+          <form action="/delete/shop"  method="post">
+            @csrf  
+            <input type="hidden" name="user_id" value="{{$management->user_id}}">
+            <input type="submit" class="batsu" value="❌">
+          </form>  
           <p>{{$management->name}}</p>
           <p>{{$management->area ->area}}</p>
           <p>{{$management->genre->genre}}</p>

@@ -13,6 +13,7 @@ Route::get('/detail/{shop_id}',  [ShopController::class, 'detail'])-> name('deta
 Route::post('/search', [ShopController::class, 'search']);
 Route::get('/thanks', [ShopController::class, 'thanks']);
 Route::post('/add/shop', [ShopController::class, 'create']);
+Route::post('/delete/shop', [ShopController::class, 'remove']);
 
 Route::get('/mypage', [MypageController::class, 'index']);
 

@@ -814,16 +814,21 @@ border-radius: 5px;
 /*店舗作成ページ*/
 .register__area,
 .register__genre{
-  border:1px solid black;
+  border:1px solid rgb(118,118,118);
   border-radius:3px;
   width:325px;
   height:30px;
+  padding-left:5px;
 }
+.register__area{
+  margin-bottom:12px;
+}
+
 
 /*会員登録ページ*/
 .complete__btn{
   width:50px;
   height:30px;
   border-radius:5px;
-  border:1px solid rgb(156, 156, 156);
+  border:1px solid rgb(118,118,118);
 }

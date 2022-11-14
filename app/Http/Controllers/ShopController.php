@@ -34,6 +34,7 @@ public function index(Request $request)
     return view('/index', $param);
     }
 
+
     public function create(Request $request)
     {
     $name=$request->name;
@@ -73,6 +74,7 @@ public function index(Request $request)
     return view('/complete', $param);
     }
 
+
 public function detail(Request $request, $shop_id){
     $shop=Shop::find($shop_id);
     $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();
@@ -83,6 +85,7 @@ public function detail(Request $request, $shop_id){
     ];
     return view('detail', $param);
 }
+
 
 public function search(Request $request){
     $areas=Area::all();
@@ -129,6 +132,25 @@ public function search(Request $request){
     ];
     return view('/index', $param);
 }
+
+
+public function remove(Request $request)
+{
+    $user_id=$request->user_id;
+    Shop::where('user_id', $user_id)->delete();
+    $areas=Area::all();
+    $genres=Genre::all();
+    $id=Auth::id();
+    $managements=Shop::where('user_id', $id)->get();
+    $param=[
+        'id'=>$id,
+        'areas'=>$areas,
+        'genres'=>$genres,
+        'managements'=>$managements
+    ];
+    return view('/manager', $param);
+}
+
 
 public function thanks(Request $request){
 
