@@ -63,9 +63,12 @@ public function index(Request $request)
     $areas=Area::all();
     $genres=Genre::all();
     $id=Auth::id();
+    $managements=Shop::where('user_id', $id)->get();
     $param=[
         'areas'=>$areas,
-        'genres'=>$genres
+        'genres'=>$genres,
+        'id'=>$id,
+        'managements'=> $managements
     ];
     return view('/complete', $param);
     }

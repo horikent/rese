@@ -30,8 +30,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '2',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager2',
+            'email' => 'resepj2@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:02',
             'password' => bcrypt("rese_login2"),
             'admin' => '0',        
@@ -43,8 +43,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '3',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager3',
+            'email' => 'resepj3@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:03',
             'password' => bcrypt("rese_login3"),
             'admin' => '0',        
@@ -56,8 +56,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '4',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager4',
+            'email' => 'resepj4@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:04',
             'password' => bcrypt("rese_login4"),
             'admin' => '0',        
@@ -69,8 +69,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '5',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager5',
+            'email' => 'resepj5@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:05',
             'password' => bcrypt("rese_login5"),
             'admin' => '0',        
@@ -82,8 +82,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '6',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager6',
+            'email' => 'resepj6@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:06',
             'password' => bcrypt("rese_login6"),
             'admin' => '0',        
@@ -95,8 +95,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '7',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager7',
+            'email' => 'resepj7@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:07',
             'password' => bcrypt("rese_login7"),
             'admin' => '0',        
@@ -108,8 +108,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '8',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager8',
+            'email' => 'resepj8@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:08',
             'password' => bcrypt("rese_login8"),
             'admin' => '0',        
@@ -121,8 +121,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '9',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager9',
+            'email' => 'resepj9@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:09',
             'password' => bcrypt("rese_login9"),
             'admin' => '0',        
@@ -134,8 +134,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '10',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager10',
+            'email' => 'resepj10@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:10',
             'password' => bcrypt("rese_login10"),
             'admin' => '0',        
@@ -147,8 +147,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '11',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager11',
+            'email' => 'resepj11@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:11',
             'password' => bcrypt("rese_login11"),
             'admin' => '0',        
@@ -160,8 +160,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '12',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager12',
+            'email' => 'resepj12@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:12',
             'password' => bcrypt("rese_login12"),
             'admin' => '0',        
@@ -173,8 +173,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '13',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager13',
+            'email' => 'resepj13@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:13',
             'password' => bcrypt("rese_login13"),
             'admin' => '0',        
@@ -186,8 +186,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '14',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager14',
+            'email' => 'resepj14@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:14',
             'password' => bcrypt("rese_login14"),
             'admin' => '0',        
@@ -199,8 +199,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '15',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager15',
+            'email' => 'resepj15@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:15',
             'password' => bcrypt("rese_login15"),
             'admin' => '0',        
@@ -212,8 +212,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '16',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager16',
+            'email' => 'resepj16@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:16',
             'password' => bcrypt("rese_login16"),
             'admin' => '0',        
@@ -225,8 +225,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '17',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager17',
+            'email' => 'resepj17@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:17',
             'password' => bcrypt("rese_login17"),
             'admin' => '0',        
@@ -238,8 +238,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '18',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager18',
+            'email' => 'resepj18@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:18',
             'password' => bcrypt("rese_login18"),
             'admin' => '0',        
@@ -251,8 +251,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '19',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager19',
+            'email' => 'resepj19@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:19',
             'password' => bcrypt("rese_login19"),
             'admin' => '0',        
@@ -264,8 +264,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '20',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager20',
+            'email' => 'resepj20@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:20',
             'password' => bcrypt("rese_login20"),
             'admin' => '0',        
@@ -277,8 +277,8 @@ class UsersTableSeeder extends Seeder
         User::create($param);
         $param = [
             'id' => '21',
-            'name' => '',
-            'email' => 'resepj.2022@gmail.com',
+            'name' => 'manager21',
+            'email' => 'resepj21@gmail.com',
             'email_verified_at' => '2022-11-12 11:11:21',
             'password' => bcrypt("rese_login21"),
             'admin' => '0',        

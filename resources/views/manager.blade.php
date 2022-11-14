@@ -27,9 +27,9 @@
                     <option value="{{$area->id}}">{{$area->area}}</option>
                   @endforeach
                 </select>  
-              </div>
-              <div class="genre" class=register__genre>
-                <select name="genre_id">
+              </div><br>
+              <div class="genre">
+                <select name="genre_id" class=register__genre>
                   <option value="">ジャンル：ご選択ください▼</option>
                   @foreach($genres as $genre)
                     <option value="{{$genre->id}}">{{$genre->genre}}</option>
@@ -44,8 +44,17 @@
                       </span>
                       @endif
               </div>
+              <input type="hidden" name="user_id" value="{{$id}}">
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
       </div>    
+      <div>
+        @foreach($managements as $management)
+          <p>{{$management->name}}</p>
+          <p>{{$management->area ->area}}</p>
+          <p>{{$management->genre->genre}}</p>
+          <p>{{$management->detail}}</p>
+        @endforeach
+      </div>
     </div>        
 @endsection
