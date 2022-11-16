@@ -853,12 +853,14 @@ justify-content: space-around;
 }
 
 .edit__btn{
-  margin-top:10px;
   background:#2F5CFF;
   color:white;
+  margin-top:20px;
   padding:5px 10px;
   border-radius: 3px;
-}
+  margin-left: 43%;
+  }
+
 
 .delete__btn{
   margin-top:10px;

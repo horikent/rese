@@ -66,11 +66,10 @@
                   <option value="{{$genre->id}}"                   
                     @if($genre->id === $management->genre_id) selected @endif>{{$genre->genre}}</option>
                 @endforeach
-              </select><br>     
-              <input type="textarea" name="detail" class="edit__detail" value="{{$management->detail}}">
+              </select><br>
+              <input type="textarea" name="detail" class="edit__detail" value="{{$management->detail}}"><br>
               <input type="hidden" name="user_id" value="{{$management->user_id}}">
-              <input type="hidden" name="_token" value="{{csrf_token()}}"><br><br>
-  
+              <input type="hidden" name="_token" value="{{csrf_token()}}">
               <button type="submit" class="edit__btn">店舗情報変更</button>       
           </div>   
           @endif  
