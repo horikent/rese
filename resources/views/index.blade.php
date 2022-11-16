@@ -1,7 +1,6 @@
 
 @extends('layouts.app')
 
-
 @section('header')
   <header class="header flex-item">
     <div class="header__container flex-item">
@@ -91,6 +90,5 @@
     @endif
     </div>
 @endsection
-
 
 

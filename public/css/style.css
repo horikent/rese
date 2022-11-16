@@ -364,6 +364,7 @@ img {
 .number {
   width: 90%;
   height:22px;
+  padding-left:5px;
 }
 
 .date,   
@@ -378,7 +379,7 @@ img {
 }
 
 .reservation__btn {
-  width:111.3%;
+  width:445px;
   height:50px;
   margin-top:190px;
   margin-left:-45px;
@@ -802,11 +803,96 @@ border-radius: 5px;
   padding:5px 15px;
   margin-top: 10px;
   margin-left: 60%;
-  cursor: pointer;
 }
 
 .acountPage_link {
   text-decoration: none;
   color: black;
   text-align: center;
+}
+
+/*店舗作成ページ*/
+
+.registered__shop{
+  margin-top:30px;
+  text-align: center;
+  background:white;
+  background-size: cover;
+  padding:20px;
+  border-radius: 10px;
+}
+
+.register__area,
+.register__genre{
+  border:1px solid rgb(118,118,118);
+  border-radius:3px;
+  width:325px;
+  height:30px;
+  padding-left:5px;
+}
+.register__area{
+  margin-bottom:11px;
+}
+.edit__info{
+  border:1px solid rgb(118,118,118);
+  border-radius:3px;
+  height:30px;
+  width:150px;
+}
+.edit__detail{
+height:50px;
+width:300px;
+border:1px solid rgb(118,118,118);
+border-radius:3px;
+margin-top:10px;
+}
+
+.btn__container{
+display:flex;
+justify-content: space-around;
+}
+
+.edit__btn{
+  margin-top:10px;
+  background:#2F5CFF;
+  color:white;
+  padding:5px 10px;
+  border-radius: 3px;
+}
+
+.delete__btn{
+  margin-top:10px;
+  background:#2F5CFF;
+  color:white;
+  padding:5px 10px;
+  border-radius: 3px;
+}
+
+.reservation-manager{
+  margin:20px 20px;
+  text-align: center;
+}
+
+.reservation__item-manager{
+  text-align: center;
+  background: #2F5CFF;
+  width: 500px;
+  padding:2px 0 15px 15px;
+  margin:0 auto;
+  line-height:2;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+
+/*会員登録ページ*/
+.complete__btn{
+  width:70px;
+  height:30px;
+  border-radius:5px;
+  border:1px solid rgb(118,118,118);
+  background: #2F5CFF;
+  color: white;
+  cursor: pointer;
+  padding:5px 15px;
 }

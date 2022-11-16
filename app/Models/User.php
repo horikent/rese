@@ -26,6 +26,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'admin',
+        'manager',
     ];
 
     /**
@@ -55,6 +57,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function shopreviews() {
         return $this->hasMany(ShopReview::class);
+    }
+    public function shop() {
+        return $this->hasone(Shop::class);
     }
 
 }

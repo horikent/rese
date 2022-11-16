@@ -34,16 +34,16 @@
         <form action="/add/reservation" method="post">
         @csrf 
           <input type="date" class="date" name="date" value="date"><br>
-          <select class="time" name="time">
-            <option></option>
+          <select class="time" name="time" >
+            <option>時間</option>
             @for($i=11; $i<=22; $i++)
             <option value="{{$i}}:00">{{$i}}:00</option>
             <option value="{{$i}}:30">{{$i}}:30</option>
             @endfor
             <option value="23:00">23:00</option>
           </select>
-          <select class="number" name="number">
-            <option></option>
+          <select class="number" name="number" >
+            <option>人数</option>
             @for($i=1; $i<=10; $i++)
             <option value="{{$i}}">{{$i}}人</option>
             @endfor
@@ -73,11 +73,9 @@
             @endauth
         </form>
         @guest
-          <div >  
-            <button class="reservation__btn">
-              <a href="/login">予約する</a>
-            </button>  
-          </div>
+          <button class="reservation__btn">
+            <a href="/login">予約する</a>
+          </button>  
         @endguest  
     </div>
   </div>
