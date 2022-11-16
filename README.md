@@ -54,7 +54,7 @@ JawsDB
 <img src="img/table_design.png" alt=""> 
 
 ## ER 図
-<img src="img/rese.svg" alt=""> 
+![rese drawio](https://user-images.githubusercontent.com/108177644/202149128-0f4f9219-0ba0-4ea0-9f71-b1713ce4a9e7.png)
 
 ## 環境構築
 Githubよりローカルで用いる際は
