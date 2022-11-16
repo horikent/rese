@@ -29,7 +29,7 @@ class ReservationRequest extends FormRequest
     public function rules()
     {
         return [
-            'date'=>'required|regex:<^[202]{3}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}$>|after:today|before:1 months',
+            'date'=>'required|regex:<^[0-9]{4}-[0-9]{2}-[0-9]{2}$>|after:today|before:1 months',
             'time'=>'required',
             'number'=>'required',
         ];
