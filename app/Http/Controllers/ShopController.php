@@ -151,23 +151,6 @@ public function update(Request $request)
     return view('/complete');
 }
 
-public function remove(Request $request)
-{
-    $user_id=$request->user_id;
-    Shop::where('user_id', $user_id)->delete();
-    $areas=Area::all();
-    $genres=Genre::all();
-    $id=Auth::id();
-    $managements=Shop::where('user_id', $id)->get();
-    $param=[
-        'id'=>$id,
-        'areas'=>$areas,
-        'genres'=>$genres,
-        'managements'=>$managements
-    ];
-    return view('/manager', $param);
-}
-
 
 public function thanks(Request $request){
 

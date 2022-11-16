@@ -14,7 +14,6 @@ Route::post('/search', [ShopController::class, 'search']);
 Route::get('/thanks', [ShopController::class, 'thanks']);
 Route::post('/add/shop', [ShopController::class, 'create']);
 Route::post('/edit/shop', [ShopController::class, 'update']);
-Route::post('/delete/shop', [ShopController::class, 'remove']);
 
 Route::get('/mypage', [MypageController::class, 'index']);
 

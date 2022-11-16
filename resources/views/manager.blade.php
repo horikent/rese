@@ -70,14 +70,8 @@
               <input type="textarea" name="detail" class="edit__detail" value="{{$management->detail}}">
               <input type="hidden" name="user_id" value="{{$management->user_id}}">
               <input type="hidden" name="_token" value="{{csrf_token()}}"><br><br>
-          <div class="btn__container">    
+  
               <button type="submit" class="edit__btn">店舗情報変更</button>       
-            </form>
-            <form action="/delete/shop"  method="post">
-              @csrf  
-              <input type="hidden" name="user_id" value="{{$management->user_id}}">
-              <button type="submit" class="delete__btn">店舗情報削除</button>
-            </form>
           </div>   
           @endif  
         </div>
