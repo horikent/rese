@@ -288,6 +288,19 @@ class UsersTableSeeder extends Seeder
             'updated_at' => '2022-11-12 11:11:21',
         ];
         User::create($param);
+        $param = [
+            'id' => '22',
+            'name' => 'test-user',
+            'email' => 'rese_test@gmail.com',
+            'email_verified_at' => '2022-11-15 11:11:01',
+            'password' => bcrypt("rese_login22"),
+            'admin' => '0',        
+            'manager' => '0', 
+            'remember_token' => 'Null',
+            'created_at' => '2022-11-15 11:11:21',
+            'updated_at' => '2022-11-15 11:11:21',
+        ];
+        User::create($param);
 
     }
 }

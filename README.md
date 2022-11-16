@@ -1,7 +1,8 @@
 # アプリケーション名
 Rese（リーズ）
 20-30代の社会人を対象としたグループ会社の飲食店予約サービスです。
-<img src="image/Rese_LP.png" alt="">
+<img width="1201" alt="rese_lp画像" src="https://user-images.githubusercontent.com/108177644/202150466-5b0c97f9-3554-43bd-8c4a-c2848a6eb5f0.png">
+
 
 ## 作成した目的
 自社で予約サービスを持つ事で、外部の飲食店予約サービスにかかる手数料を削減し、グループのさらなる発展が見込めるため。
@@ -10,10 +11,6 @@ Rese（リーズ）
 https://rocky-lowlands-94951.herokuapp.com/
 予約・お気に入りのご利用には会員登録とログインが必要です。
 店舗情報の閲覧は未登録でもご利用いただけます。
-
-店舗登録は管理者のみが可能です。管理者ログイン情報はUserTableSeederに登録しておりますので、そちらをご確認ください。管理者は店舗情報の作成はできませんので、店舗情報を作成する際は再度ログインをお願い致します。
-
-店舗情報の作成、変更、削除は店舗代表者のみが可能です。初期登録の20件分について店舗代表者の記載はありませんでしたので、変更・削除のために便宜的に設定させていただきました。店舗代表者ログイン情報もUserTableSeederに記載しております。
 
 ## 他のリポジトリ
 開発用：https://sheltered-earth-56681.herokuapp.com/
@@ -51,7 +48,7 @@ heroku/7.65.0 darwin-x64 node-v14.19.0
 JawsDB
 
 ## テーブル設計
-<img src="img/table_design.png" alt=""> 
+<img width="1024" alt="table_design" src="https://user-images.githubusercontent.com/108177644/202151697-553f2459-ce44-41cb-8af4-e15b79f31509.png">
 
 ## ER 図
 ![rese drawio](https://user-images.githubusercontent.com/108177644/202149128-0f4f9219-0ba0-4ea0-9f71-b1713ce4a9e7.png)
@@ -63,5 +60,15 @@ php artisan db:seed
 を実行してご利用ください。
 
 ## 他に記載することがあれば記述する
+アカウントは利用者と管理者と店舗代表者の３種類です。
+
+利用者としてテストユーザーを１人登録しております。登録情報はUserTableSeederにてid=22番です。
+
+管理者は店舗代表者を登録できます。管理者情報はUserTableSeederにてid=1番です。
+管理者は店舗情報の作成はできませんので、店舗情報を作成する際は再度ログインをお願い致します。
+
+店舗代表者は店舗情報の作成、更新が可能です。店舗代表者情報はUserTableSeederにてid=2〜21番に記載しております。
+初期登録の20件分の店舗について店舗代表者の記載はありませんでしたが、店舗情報更新の際に必要となるため設定させていただきました。
+
 案件シートです
 https://docs.google.com/spreadsheets/d/1ryZ7Gor0gdIdh2gnA2-Rc3y3YsVcijFIFxEPtuzbPak/edit#gid=915403830
