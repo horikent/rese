@@ -13,28 +13,28 @@
           <form action="/add/manager" method="post">
             @csrf
               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                  <input class="form-control" placeholder="Username" type="text" name="name" value="{{ old('name') }}" required autofocus><br>
-                  @if ($errors->has('name'))
-                      <span class="help-block">
-                      <strong>{{ $errors->first('name') }}</strong>
-                      </span>
-                  @endif
+                <input class="form-control" placeholder="Username" type="text" name="name" value="{{ old('name') }}" required autofocus><br>
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                    <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
               </div>
               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                  <input class="form-control" placeholder="Email" autocomplete="email" type="email" name="email" value="{{ old('email') }}" required><br>
-                      @if ($errors->has('email'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('email') }}</strong>
-                      </span>
-                      @endif
+                <input class="form-control" placeholder="Email" autocomplete="email" type="email" name="email" value="{{ old('email') }}" required><br>
+                    @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                    @endif
               </div>
               <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                  <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="password" required><br>
-                  @if ($errors->has('password'))
-                  <span class="help-block">
-                      <strong>{{ $errors->first('password') }}</strong>
-                  </span>
-                  @endif
+                <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="password" required><br>
+                @if ($errors->has('password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
               </div>
               <input type="hidden" name="admin" value="">
               <input type="hidden" name="manager" value="1">
@@ -43,5 +43,5 @@
       </div>    
       <p>こちらで店舗情報の登録が可能な店舗代表者のご登録ができます。</p>
       <p>店舗のご登録の際には店舗代表者に再度ログインしご利用ください。</p>
-    </div>        
+    </div>   
 @endsection

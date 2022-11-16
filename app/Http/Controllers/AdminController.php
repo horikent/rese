@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
     public function index(LoginRequest $request)
     {
-        return view('/admin');
+        return view('/admin', $managers);
 	}
 
     public function manager(Request $request)
@@ -24,7 +24,7 @@ class AdminController extends Controller
         $managements=Shop::where('user_id', $id)->get();
         $param=[
             'areas'=>$areas,
-            'genre'=>$genres,
+            'genres'=>$genres,
             'id'=>$id,
             'managements'=> $managements
         ];
@@ -46,7 +46,25 @@ class AdminController extends Controller
             'manager' => $manager
             ];    
         User::create($param);
-        return view('/complete');
+        $admin=Auth::user()->admin;
+        $manager=Auth::user()->manager;
+        $param=[
+            'admin'=>$admin,
+            'manager'=>$manager
+        ];
+        return view('/complete', $param);
+	}
+
+
+    public function complete(Request $request)
+    {
+        $admin=Auth::user()->admin;
+        $manager=Auth::user()->manager;
+        $param=[
+            'admin'=>$admin,
+            'manager'=>$manager
+        ];
+        return view('/complete', $param);
 	}
 
 }

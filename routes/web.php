@@ -13,14 +13,15 @@ Route::get('/detail/{shop_id}',  [ShopController::class, 'detail'])-> name('deta
 Route::post('/search', [ShopController::class, 'search']);
 Route::get('/thanks', [ShopController::class, 'thanks']);
 Route::post('/add/shop', [ShopController::class, 'create']);
+Route::post('/edit/shop', [ShopController::class, 'update']);
 Route::post('/delete/shop', [ShopController::class, 'remove']);
 
 Route::get('/mypage', [MypageController::class, 'index']);
 
 Route::post('/add/reservation', [ReservationController::class, 'create']);
 Route::post('/edit/reservation', [ReservationController::class, 'update']);
-Route::get('/done', [ReservationController::class, 'done']);
 Route::post('/delete/reservation', [ReservationController::class, 'remove']);
+Route::get('/done', [ReservationController::class, 'done']);
 
 Route::post('/add/favorite', [FavoriteController::class, 'create']);
 Route::post('/delete/favorite', [FavoriteController::class, 'remove']);
@@ -30,6 +31,7 @@ Route::post('/add/review', [ShopReviewController::class, 'create']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/manager', [AdminController::class, 'manager']);
 Route::post('/add/manager', [AdminController::class, 'create']);
+Route::post('/add/complete', [AdminController::class, 'complete']);
 
 Route::get('/thanks', function () {
     return view('thanks');

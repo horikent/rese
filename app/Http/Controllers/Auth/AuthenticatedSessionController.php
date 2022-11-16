@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,21 +35,25 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
+
         $admin=Auth::user()->admin;
+
         $manager=Auth::user()->manager;
         $id=Auth::id();
         $areas=Area::all();
         $genres=Genre::all();
         $managements=Shop::where('user_id', $id)->get();
+        $reservations=Reservation::all();
         $param=[
+            'id'=>$id,
             'areas'=>$areas,
             'genres'=>$genres,
             'managements'=>$managements,
-            'id'=>$id
+            'reservations'=>$reservations
         ];
         if(!empty($admin))
             return view('/admin');     
-        elseif(!@empty($manager))
+        elseif(!empty($manager))
             return view('/manager', $param);
         else    
             return redirect('/');

@@ -35,46 +35,6 @@ public function index(Request $request)
     }
 
 
-    public function create(Request $request)
-    {
-    $name=$request->name;
-    $area_id=$request->area_id;
-    $genre_id=$request->genre_id;
-    $detail=$request->detail;
-    if($genre_id == 1) 
-        $image="img/sushi.jpg";
-    if($genre_id == 2) 
-        $image="img/yakiniku.jpg";
-    if($genre_id == 3) 
-        $image="img/izakaya.jpg";
-    if($genre_id == 4) 
-        $imagee="img/italian.jpg";
-    if($genre_id == 5) 
-        $image="img/ramen.jpg";
-    $param=[
-        'name'=>$name,
-        'area_id'=>$area_id,
-        'genre_id'=>$genre_id,
-        'detail'=>$detail,
-        'area_id'=>$area_id,
-        'image'=>$image
-    ];
-    Shop::create($param);
-
-    $areas=Area::all();
-    $genres=Genre::all();
-    $id=Auth::id();
-    $managements=Shop::where('user_id', $id)->get();
-    $param=[
-        'areas'=>$areas,
-        'genres'=>$genres,
-        'id'=>$id,
-        'managements'=> $managements
-    ];
-    return view('/complete', $param);
-    }
-
-
 public function detail(Request $request, $shop_id){
     $shop=Shop::find($shop_id);
     $shop_reviews=ShopReview::where('shop_id', $shop_id)->get();
@@ -133,6 +93,63 @@ public function search(Request $request){
     return view('/index', $param);
 }
 
+
+
+public function create(Request $request)
+    {
+    $name=$request->name;
+    $area_id=$request->area_id;
+    $genre_id=$request->genre_id;
+    $detail=$request->detail;
+    $user_id=$request->user_id;
+    if($genre_id == 1) 
+        $image="img/sushi.jpg";
+    if($genre_id == 2) 
+        $image="img/yakiniku.jpg";
+    if($genre_id == 3) 
+        $image="img/izakaya.jpg";
+    if($genre_id == 4) 
+        $imagee="img/italian.jpg";
+    if($genre_id == 5) 
+        $image="img/ramen.jpg";
+    $param=[
+        'name'=>$name,
+        'area_id'=>$area_id,
+        'genre_id'=>$genre_id,
+        'detail'=>$detail,
+        'user_id'=>$user_id,
+        'image'=>$image
+    ];
+    Shop::create($param);
+    $admin = $request->admin;
+    $manager = $request->manager;
+    $param=[
+    'admin' => $admin,
+    'manager' => $manager
+    ];    
+    return view('/complete', $param);
+}
+
+
+public function update(Request $request)
+{
+    $name = $request->name;
+    $area_id =$request->area_id; 
+    $genre_id =$request->genre_id;
+    $detail = $request->detail;
+    $user_id = $request->user_id;
+    $param = [
+        'name' => $name,
+        'area_id' => $area_id,
+        'genre_id'=> $genre_id,
+        'detail'=> $detail,
+        'user_id'=> $user_id,
+        '_token'=> $request->_token
+    ];    
+    unset($param['_token']);
+    Shop::where('user_id', $request->user_id)->update($param);
+    return view('/complete');
+}
 
 public function remove(Request $request)
 {
