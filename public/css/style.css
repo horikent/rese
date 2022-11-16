@@ -364,6 +364,7 @@ img {
 .number {
   width: 90%;
   height:22px;
+  padding-left:5px;
 }
 
 .date,   
@@ -378,7 +379,7 @@ img {
 }
 
 .reservation__btn {
-  width:111.3%;
+  width:445px;
   height:50px;
   margin-top:190px;
   margin-left:-45px;
