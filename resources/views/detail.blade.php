@@ -87,10 +87,10 @@
             <dt>
               <div class="star__container">
                 @for($i=0; $i < $shop_review->stars; $i++) 
-                <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
                 @endfor
                 @for ($j=0; $i+$j < 5; $j++)
-                <span class="fa fa-star unchecked"></span>
+                  <span class="fa fa-star unchecked"></span>
                 @endfor
               </div>
             </dt>

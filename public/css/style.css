@@ -24,7 +24,18 @@ a {
   color: white;
 }
 
-
+/*管理画面用ヘッダー*/
+.header-admin{
+  justify-content: space-between;
+}
+.admin-logout{
+  padding:10px 15px;
+  margin:25px 25px 0 0;
+  border-radius:5px;
+  background:rgb(84, 128, 247);
+  color:white;
+  cursor: pointer;
+}
 
 /*ハンバーガーメニュー、ドロワーメニュー*/
 
@@ -585,6 +596,7 @@ margin:5px 60% 20px 20px;
 background:rgb(84, 128, 247);
 color:white;
 display: block;
+cursor: pointer;
 }
 
 .modal {
