@@ -1,14 +1,6 @@
+@extends('layouts.admin')
 
-@extends('layouts.app')
-
-
-@section('header')
-  <header class="shop__header">
-    <div class="header__container flex-item">
-@endsection    
-
-@section('content') 
-  </header>  
+@section('content')
   <div class="done__container">
     <p>ご登録ありがとうございます。</p>
     @if($admin === 1)

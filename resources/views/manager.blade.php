@@ -1,12 +1,6 @@
-@extends('layouts.app')
-
-@section('header')
-  <header class="header flex-item">
-    <div class="header__container flex-item">
-@endsection    
+@extends('layouts.admin')
 
 @section('content')
-  </header>
     <div class="register__Page">
       <div class="register__container">
       <h4 class="register__title">&emsp;店舗代表者用：店舗登録画面</h4>
@@ -102,4 +96,4 @@
           @endif
         @endforeach
       @endforeach
-@endsection
+@endsection         
