@@ -42,6 +42,7 @@
                       @endif
               </div>
               <input type="hidden" name="user_id" value="{{$id}}">
+              <input type="hidden" name="manager" value="1">
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
       </div><br>
@@ -69,8 +70,8 @@
                 <input type="hidden" name="id" value="{{$management->id}}">
                 <input type="hidden" name="user_id" value="{{$management->user_id}}">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <button type="submit" class="edit__btn">店舗情報変更</button>       
-            </div>   
+                <button type="submit" class="edit__btn">店舗情報変更</button>    
+              </form>       
             @endif  
           </div><br><br>
         @endforeach

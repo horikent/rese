@@ -837,7 +837,6 @@ border-radius: 5px;
 .registered__shop{
   margin-top:30px;
   text-align: center;
-  background:white;
   background-size: cover;
 }
 
@@ -875,6 +874,7 @@ border-radius: 5px;
   border-radius:3px;
   height:30px;
   width:150px;
+  padding-left:5px;
 }
 .edit__detail{
 height:80px;

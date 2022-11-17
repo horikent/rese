@@ -27,7 +27,7 @@ Route::post('/delete/favorite', [FavoriteController::class, 'remove']);
 
 Route::post('/add/review', [ShopReviewController::class, 'create']);
 
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/manager', [AdminController::class, 'manager']);
 Route::post('/add/manager', [AdminController::class, 'create']);
 Route::post('/complete', [AdminController::class, 'complete']);

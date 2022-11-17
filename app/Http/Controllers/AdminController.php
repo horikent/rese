@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function index(LoginRequest $request)
+    public function admin(LoginRequest $request)
     {
         return view('/admin', $managers);
 	}
