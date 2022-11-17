@@ -5,15 +5,16 @@ use App\Models\User;
 use App\Models\Area;
 use App\Models\Genre;
 use App\Models\Shop;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function admin(LoginRequest $request)
+    public function admin(Request $request)
     {
-        return view('/admin', $managers);
+        return view('/admin');
 	}
 
     public function manager(Request $request)
@@ -22,10 +23,12 @@ class AdminController extends Controller
         $genres=Genre::all();
         $id=Auth::id();
         $managements=Shop::where('user_id', $id)->get();
+        $reservations=Reservation::all();
         $param=[
             'areas'=>$areas,
             'genres'=>$genres,
             'id'=>$id,
+            'reservations'=>$reservations,
             'managements'=> $managements
         ];
         return view('/manager', $param);
@@ -52,7 +55,7 @@ class AdminController extends Controller
             'admin'=>$admin,
             'manager'=>$manager
         ];
-        return view('/complete', $param);
+        return view('/register', $param);
 	}
 
 

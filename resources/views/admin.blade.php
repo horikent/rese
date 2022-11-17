@@ -35,7 +35,6 @@
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
       </div>    
-      <p>こちらで店舗情報の登録が可能な店舗代表者のご登録ができます。</p>
-      <p>店舗のご登録の際には店舗代表者にて再度ログインしご利用ください。</p>
+      <p>店舗のご登録の際には店舗代表者にて再度ログインしご利用下さい</p>
     </div>   
 @endsection

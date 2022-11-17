@@ -30,7 +30,8 @@ Route::post('/add/review', [ShopReviewController::class, 'create']);
 Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/manager', [AdminController::class, 'manager']);
 Route::post('/add/manager', [AdminController::class, 'create']);
-Route::post('/complete', [AdminController::class, 'complete']);
+Route::get('/register', [AdminController::class, 'register']);
+Route::get('/complete', [AdminController::class, 'complete']);
 
 Route::get('/thanks', function () {
     return view('thanks');

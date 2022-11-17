@@ -42,7 +42,6 @@
                       @endif
               </div>
               <input type="hidden" name="user_id" value="{{$id}}">
-              <input type="hidden" name="manager" value="1">
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
       </div><br>
