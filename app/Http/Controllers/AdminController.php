@@ -55,7 +55,7 @@ class AdminController extends Controller
             'admin'=>$admin,
             'manager'=>$manager
         ];
-        return view('/register', $param);
+        return view('/registered', $param);
 	}
 
 
