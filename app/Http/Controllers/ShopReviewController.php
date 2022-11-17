@@ -18,7 +18,14 @@ class ShopReviewController extends Controller
             'stars' => 'required',
             'comment' => 'required'
         ]);
+        $exists = ShopReview::where('user_id', $request->user()->id)
+        ->where('shop_id', $request->shop_id)
+        ->exists();
 
+    if($exists) {
+        return back()->withInput()->withErrors('すでにレビューは投稿されています');
+}
+    else{
         $user_id = Auth::user()->id;
         $stars = $request->stars;
         $shop_id= $request->shop_id;
@@ -32,6 +39,6 @@ class ShopReviewController extends Controller
         ShopReview::create($param);
         return back();
     }    
-
+    }
 }
 

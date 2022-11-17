@@ -748,6 +748,13 @@ padding:5px;
 width:80%;
 }
 
+.form-control-detail{
+  text-align: left;
+  padding:5px;
+  width:80%;
+  height:80px;
+  }  
+
 .login__btn,
 .login__Btn{
 color: white;
@@ -825,14 +832,32 @@ border-radius: 5px;
 
 /*店舗作成ページ*/
 
+
+
 .registered__shop{
   margin-top:30px;
   text-align: center;
   background:white;
   background-size: cover;
-  padding:20px;
-  border-radius: 10px;
 }
+
+.registered__container {
+  background:white;  
+  text-align: center;
+  width: 400px;
+  padding: 8% 10%;  
+  border-radius: 5px;
+  line-height: 2;
+  font-size: 20px;
+  box-shadow: 3px 3px 3px 1px rgb(156, 156, 156);
+}
+
+.admin-reservation__table {
+  width:80%;
+  font-size:14px;
+  color: white;
+  margin-top:-10px;
+  }
 
 .register__area,
 .register__genre{
@@ -852,7 +877,7 @@ border-radius: 5px;
   width:150px;
 }
 .edit__detail{
-height:50px;
+height:80px;
 width:300px;
 border:1px solid rgb(118,118,118);
 border-radius:3px;
@@ -883,7 +908,7 @@ justify-content: space-around;
 }
 
 .reservation-manager{
-  margin:20px 20px;
+  margin:-50px 20px 20px;
   text-align: center;
 }
 

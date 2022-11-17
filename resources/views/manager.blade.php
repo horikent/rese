@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="register__Page">
+      <div class="name__container">  
+        <h2>{{Auth::user()->name}}様</h2><br>
+      </div>
       <div class="register__container">
       <h4 class="register__title">&emsp;店舗代表者用：店舗登録画面</h4>
           <form action="/add/shop" method="post">
@@ -31,8 +34,8 @@
                 </select>  
               </div>
               <div class="form-group{{ $errors->has('detail') ? ' has-error' : '' }}">
-                  <input class="form-control" placeholder="店舗詳細情報をご記入ください" type="textarea" name="detail" required><br>
-                      @if ($errors->has('email'))
+                  <textarea class="form-control-detail" placeholder="店舗詳細情報をご記入ください"  name="detail" wrap="soft" required></textarea><br>
+                      @if ($errors->has('detail'))
                       <span class="help-block">
                           <strong>{{ $errors->first('detail') }}</strong>
                       </span>
@@ -41,35 +44,38 @@
               <input type="hidden" name="user_id" value="{{$id}}">
               <input type="submit" name="commit" value="登録" class="register__Btn">
           </form>
-      </div><br><br><br>    
-      @foreach($managements as $management) 
-        <div class="register__container">
-          @if(isset($management))
-          <h4 class="register__title">&emsp;店舗登録履歴</h4>
-            <form action="/edit/shop" method="post">
-              @csrf
-              <input type="text" name="name" class="edit__info" value="{{$management->name}}"><br> 
-              <select name="area_id" class="edit__info">
-                @foreach($areas as $area)
-                  <option value="{{$area->id}}" 
-                    @if($area->id === $management->area_id) selected @endif>{{$area->area}}</option>
-                @endforeach
-              </select>
-              <select name="genre_id" class="edit__info">
-                @foreach($genres as $genre)
-                  <option value="{{$genre->id}}"                   
-                    @if($genre->id === $management->genre_id) selected @endif>{{$genre->genre}}</option>
-                @endforeach
-              </select><br>
-              <input type="textarea" name="detail" class="edit__detail" value="{{$management->detail}}"><br>
-              <input type="hidden" name="user_id" value="{{$management->user_id}}">
-              <input type="hidden" name="_token" value="{{csrf_token()}}">
-              <button type="submit" class="edit__btn">店舗情報変更</button>       
-          </div>   
-          @endif  
-        </div>
-      @endforeach
-    </div>        
+      </div><br>
+      <div class="registered__shop">
+        @foreach($managements as $management) 
+          <div class="registered__container">
+            @if(isset($management))
+            <h4 class="register__title">&emsp;店舗登録履歴</h4>
+              <form action="/edit/shop" method="post">
+                @csrf
+                <input type="text" name="name" class="edit__info" value="{{$management->name}}"><br> 
+                <select name="area_id" class="edit__info">
+                  @foreach($areas as $area)
+                    <option value="{{$area->id}}" 
+                      @if($area->id === $management->area_id) selected @endif>{{$area->area}}</option>
+                  @endforeach
+                </select>
+                <select name="genre_id" class="edit__info">
+                  @foreach($genres as $genre)
+                    <option value="{{$genre->id}}"                   
+                      @if($genre->id === $management->genre_id) selected @endif>{{$genre->genre}}</option>
+                  @endforeach
+                </select><br>
+                <textarea name="detail" class="edit__detail" wrap="soft">{{$management->detail}}</textarea><br>
+                <input type="hidden" name="id" value="{{$management->id}}">
+                <input type="hidden" name="user_id" value="{{$management->user_id}}">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <button type="submit" class="edit__btn">店舗情報変更</button>       
+            </div>   
+            @endif  
+          </div><br><br>
+        @endforeach
+      </div>
+    </div>
     @foreach($managements as $management) 
       @foreach($reservations as $reservation)
         @if($management->id === $reservation->shop->id)
@@ -77,10 +83,14 @@
               <h3 class="reservation__ttl">予約状況</h3>
                 <div class="reservation__item-manager">
                   <p class="count">予約{{$loop->iteration}}</p>
-                  <table class="myreservation__table">
+                  <table class="admin-reservation__table">
                     <tr>
                       <th class="reservation__th">Shop</th>
                       <td>{{$reservation->shop->name}}</td>
+                    </tr>
+                    <tr>
+                      <th class="reservation__th">Name</th>
+                      <td>{{$reservation->user->name}}</td>
                     </tr>
                     <tr>
                       <th class="reservation__th">Datetime</th>
@@ -88,7 +98,7 @@
                     </tr>
                     <tr>
                       <th class="reservation__th">Number</th>
-                      <td> {{$reservation->number}}</td>
+                      <td> {{$reservation->number}}人</td>
                     </tr>
                   </table>       
                 </div>

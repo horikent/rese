@@ -37,18 +37,3 @@ if (!e.target.closest('.modal__content-inner') && e.target.id !== "reviewBtn") {
 modal.style.display = 'none';
 }
 });
-
-const maxStar = 5;
-app.get("/", (req, res) => {
-  const sql = "select * from book";
-  connection.query(sql, function (err, result, fields) {
-    if (err) throw err;
-    books = [];
-    for (book of result) {
-      book.colored = book.good;  // 評価の数（オレンジ色の星の数）
-      book.uncolored = maxStar - book.good;  // 灰色の星の数
-      books.push(book);
-    }
-    res.render("index", { book: books }); 
-  });
-});

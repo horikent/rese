@@ -22,7 +22,7 @@
       <div class="alert alert-danger mt-3">
         <ul>
           @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <li>&emsp;&emsp;{{ $error }}</li>
           @endforeach
         </ul>
       </div>
@@ -125,8 +125,8 @@
                                   </div>
                                   <input type="hidden" name="_token" value="{{csrf_token()}}">
                                   <input type="hidden" class="shop_id" name="shop_id" value="{{$reservation->shop_id}}"><br><br>
-                                  <input type="textarea" class="comment" wrap="soft" cols="20" rows="10" name="comment"><br><br>
-                                  <button type="submit" id="closeBtn">投稿<buton>
+                                  <textarea class="comment" wrap="soft" cols="20" rows="10" name="comment"></textarea><br><br>
+                                  <button type="submit" id="closeBtn">投稿</button>
                                 </div>  
                             </form>
                           </div>

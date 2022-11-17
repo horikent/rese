@@ -133,6 +133,7 @@ public function create(Request $request)
 
 public function update(Request $request)
 {
+    $id = $request->id;
     $name = $request->name;
     $area_id =$request->area_id; 
     $genre_id =$request->genre_id;
@@ -147,7 +148,7 @@ public function update(Request $request)
         '_token'=> $request->_token
     ];    
     unset($param['_token']);
-    Shop::where('user_id', $request->user_id)->update($param);
+    Shop::find($id)->update($param);
     return view('/complete');
 }
 
