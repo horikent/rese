@@ -39,6 +39,7 @@ Github(mainとstaging)：https://github.com/horikent/rese.git
 ・検索は虫眼鏡のある欄にカーソルを置きenterキーを押してください。
 ・MyPAGEにて日時、人数の変更が可能です。
 ・予約日時以降にMYPAGEより星とレビューの投稿ができます。
+・投稿したレビューは店舗詳細画面に表示されます。
 
 ## 使用技術（実行環境）
 Laravel:9.36.6

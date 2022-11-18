@@ -42,7 +42,7 @@
                     <form action="/delete/reservation"  method="post">
                       @csrf  
                       <input type="hidden" name="id" value="{{$reservation->id}}">
-                      <input type="submit" class="batsu" value="❌">
+                      <input type="submit" class="batsu" value="×">
                     </form>  
                   </div>
                   <form action="/edit/reservation" method="post">

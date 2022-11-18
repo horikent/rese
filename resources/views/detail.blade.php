@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('header')
+    <div class="header__container flex-item">
 @endsection    
 
-<div class="header__container flex-item">
 @section('content')
   <div class="detail">  
     <div class="detail__container flex-item">
@@ -50,24 +50,26 @@
           </select><br>
           <input type="hidden" name="_token" value="{{csrf_token()}}">
           <input type="hidden" name="shop_id" value="{{$shop->id}}"><br>
+          <div class="reservation__table-container">            
             <table class="reservation__table">
               <tr>
-                <th>Shop</th>
+                <th>&emsp;Shop</th>
                 <td>{{$shop->name}}</td>
               </tr>
               <tr>
-                <th>Date</th>
+                <th>&emsp;Date</th>
                 <td><p id="output_date"></p></td>
               </tr>
               <tr>
-                <th>Time</th>
+                <th>&emsp;Time</th>
                 <td><p id="output_time"></p></td>              
               </tr>
               <tr>
-                <th>Number</th>
+                <th>&emsp;Number</th>
                 <td><p id="output_number"></p></td>
               </tr>
             </table>
+          </div>  
             @auth
               <input type="submit" class="reservation__btn" value="予約する">
             @endauth
@@ -103,4 +105,3 @@
     @endisset
   </div>
 @endsection
-
