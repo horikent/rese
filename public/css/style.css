@@ -22,7 +22,6 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: white;
-  font-family: Arial;
 }
 
 /*管理画面用ヘッダー*/
@@ -173,27 +172,19 @@ select::-ms-expand {
   border-top: 7px solid #E2E2E2;
   content: "";
   position: absolute;
+  right: 500px;
   top: 48px;
   width: 0;
   pointer-events: none;
   z-index: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .area::after {
-    right: 500px;
-  }
-  .genre::after {
-    right: 390px;
-  }
-  }
-  @media screen and (max-width: 768px) {
-    .area::after {
-      left: 245px;
-    }
-    .genre::after {
-      left: 353px;
-    }
+.area::after {
+  right: 500px;
+}
+
+.genre::after {
+  right: 390px;
 }
 
 .search_box input {
@@ -303,6 +294,12 @@ button {
 }
 
 /*店舗詳細*/
+
+.detail-error{
+  width:80%;
+  text-align: left;
+}
+
 img {
   width: 100%;
 }
@@ -399,8 +396,6 @@ img {
   margin-bottom: 10px;
 }
 
-#output_date,
-#output_time,
 #output_number{
   height:5px;
 }
@@ -530,9 +525,6 @@ img {
 .clock__count{
   width:100px;
 }
-.count{
-  color:white;
-}
 
 .reservation__item,
 .history__item{
@@ -595,11 +587,8 @@ img {
 
 .batsu{
   background:none;
-  border:1px solid white;
-  border-radius:50%;
+  border:none;
   margin-top:20px;
-  color:white;
-  font-size: 20px;
 }
 
 .update__btn{

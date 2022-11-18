@@ -5,6 +5,15 @@
 @endsection    
 
 @section('content')
+  @if ($errors->any())
+    <div class="alert alert-danger mt-3">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
   <div class="detail">  
     <div class="detail__container flex-item">
       <div class="detail__container-small">
@@ -21,15 +30,6 @@
       </div>
     </div>    
     <div class="reservation__container">
-      @if ($errors->any())
-        <div class="alert alert-danger mt-3">
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-      @endif
       <h2>予約</h2>
         <form action="/add/reservation" method="post">
         @csrf 
